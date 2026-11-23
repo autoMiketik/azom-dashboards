@@ -1,5 +1,11 @@
 # iRacing telemetry for the Brake Bias popup
 
+## Published field list
+
+The [iRacing live telemetry appendix (PDF)](https://us.v-cdn.net/6034148/uploads/8DD84H30FIC8/telemetry-11-23-15.pdf) catalogs SDK fields with their types, units where specified, and whether they are available live or on disk. It lists `dcBrakeBias` as a floating point in-car adjustment available in both streams for cars that expose it. The same section lists `dcABS`, `dcTractionControl`, and `dcAntiRollFront` as candidates for future popups. The appendix dates to 2015. Use it to identify candidate SDK fields and check their current SimHub paths and values in a live session.
+
+## SimHub property lookup
+
 Use SimHub's live property list to check what a simulator exposes for the current car and session. SimHub lists common properties alongside simulator specific properties. In the Dash Studio binding editor, use **Insert property** and enable **Show game specific properties**. [SimHub binding documentation](https://github.com/SHWotever/SimHub/wiki/Dash-Studio---Bindings)
 
 ## First live check
