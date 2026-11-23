@@ -13,5 +13,5 @@ These links are research sources for the initial dashboard and SimHub integratio
 
 ## SimHub integrations and add-ons
 
-- [AZOM](https://github.com/giantorth/AZOM) — a MOZA-to-SimHub plugin reference. Its documentation covers wheel dashboard channels, SimHub telemetry mapping, and `.mzdash` upload; the project README lists CS Pro among tested wheels.
-- [ATSR-Hub EVO](https://github.com/ATSR-Alex/ATSR-Hub-EVO) — a SimHub lighting plugin reference, including LED profiles, telemetry-driven effects, and device profiles.
+- [AZOM](https://github.com/giantorth/AZOM) — required MOZA-to-SimHub integration. Its documentation covers wheel dashboard channels, SimHub telemetry mapping, and `.mzdash` upload; the project README lists CS Pro among tested wheels.
+- [ATSR-Hub EVO](https://github.com/ATSR-Alex/ATSR-Hub-EVO) — required SimHub add-on, including LED profiles, telemetry-driven effects, and device profiles.
