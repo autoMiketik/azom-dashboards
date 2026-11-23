@@ -41,7 +41,7 @@ If the cockpit check fails, split Race into **Drive** and **Timing & Fuel**. Kee
 
 ## Main 2 · Settings
 
-Use a three-column, two-row grid. Column centers are x 144, 390, and 636. Row labels sit at y 39 and 147 in 18 px. Values sit at y 99 and 207 in 46–52 px. Place brake bias top center for the easiest glance. Use static colors and stable positions even when a car lacks one of the settings.
+Use a three-column, two-row grid. Column centers are x 144, 390, and 636. Row labels sit at y 39 and 147 in 18 px. Values sit at y 99 and 207 in 46–52 px. Place brake bias top center for the easiest glance. Keep the charcoal background and neutral text across all six tiles. Center a 44 × 3 px accent line under each value at y 111 or 219. Each line uses the accent color of its corresponding popup. Keep tile positions and cues stable when a setting is unavailable.
 
 | Row | Left | Middle | Right |
 | --- | --- | --- | --- |
@@ -52,7 +52,16 @@ Engine Braking and TC 2 are proposed for the two extra slots. Keep front/rear an
 
 ## Settings popups
 
-Each supported setting has its own uploaded dashboard slot, with a shared layout. Draw a 4 px amber rule `#FFCA66` at the top, a 24 px centered setting label at y 59, and a bold white value centered at x 390 with baseline y 172. Start at 92 px for values and reduce to 72 px for wider strings. Use a 30 px percent sign for bias and fit the longest expected state within the central 560 px. No countdown is shown. Settings and popup dashboards share the same formatter for each value.
+Each supported setting has its own uploaded dashboard slot, with a shared layout. Fill the popup with the corresponding dark tint and draw a 4 px rule in the matching accent color along the top edge. Use a 24 px centered neutral label at y 59 and a bold near-white value centered at x 390 with baseline y 172. Start at 92 px for values and reduce to 72 px for wider strings. Use a 30 px percent sign for bias and fit the longest expected state within the central 560 px. No countdown is shown. Settings and popup dashboards share the same formatter for each value. The label identifies the setting even when the tints are hard to distinguish.
+
+| Setting | Popup background | Shared accent line |
+| --- | --- | --- |
+| ABS | Dark teal `#10292B` | `#67C8C1` |
+| Brake Bias | Dark amber `#322615` | `#E8B760` |
+| Traction Control | Dark violet `#29213A` | `#B5A1EC` |
+| Engine Map | Dark blue `#172740` | `#7DA8EA` |
+| Engine Braking | Dark rose `#342129` | `#E59BAA` |
+| TC 2 | Dark olive `#272D18` | `#B6C77B` |
 
 | Popup | Trigger candidate in shared SimHub data | Display and iRacing fallback candidate |
 | --- | --- | --- |
@@ -72,6 +81,6 @@ Use one editable duration setting in seconds for all popups, default **5.0 s**. 
 1. **Confirm the transport.** On the installed SimHub and AZOM versions, identify the active main slot, test exact slot selection, and check wheel-side confirmation. Recent AZOM release notes list `AZOM.DashboardName`. Public actions list next and previous, so check whether there is a supported direct selection interface before choosing the controller integration. If an AZOM change is required, scope that change before adding more popup files. Confirm that two main slots plus six popup slots fit and that ATSR-Hub EVO remains active through page changes. [AZOM releases](https://github.com/giantorth/AZOM/releases) · [AZOM action reference](https://giant.orth.cc/guides/properties-and-actions/)
 2. **Prove Race → Brake Bias → Race on hardware.** Use iRacing and a car with adjustable bias. Bind the live value, adjust up and down, then try two changes three seconds apart. With the default timeout, the main returns eight seconds after the first change. Verify with real telemetry plus replay if the relevant values survive recording.
 3. **Build both main layouts and remaining popups.** Fill the Race and Settings bindings, keep formats consistent, and enable each popup only where its setting source is verified. Check neutral and reverse, long lap times, unavailable values, sign and units, 100% bias formatting, and longer setting labels. Compare fuel after enough laps for SimHub to estimate consumption.
-4. **Review readability and switching.** Read the wheel at the normal driving distance in daylight and low light. Check that the gear and delta are legible at a glance and every requested field can be read without leaning in. Try mixed setting changes, manual page selection, session resets, and a second main page as the saved return target. Use the split layout if needed. Record car, wheel, firmware, plugin versions, and what was verified. Keep editable layouts, exports, bindings, and install instructions together.
+4. **Review readability and switching.** Read the wheel at the normal driving distance in daylight and low light. Check that the gear and delta are legible at a glance and every requested field can be read without leaning in. Check whether the popup tints are recognizable and the matching Settings lines are visible on the wheel. Try mixed setting changes, manual page selection, session resets, and a second main page as the saved return target. Use the split layout if needed. Record car, wheel, firmware, plugin versions, and what was verified. Keep editable layouts, exports, bindings, and install instructions together.
 
 For design review, the two decisions are whether the dense Race page reads comfortably at wheel size, and whether Engine Braking and TC 2 are the best two extra settings for the cars you drive.

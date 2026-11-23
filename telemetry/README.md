@@ -31,7 +31,15 @@ Open [iracing.csv](iracing.csv) in a spreadsheet to filter the SDK fields for ma
 | `sources` | Pipe separated source IDs from the list below. A recording ID confirms that its file header contains the field. |
 | `simhub_property` | Exact SimHub property path once verified. |
 
-Use the [live lookup checklist](../docs/IRACING_TELEMETRY.md) to confirm a SimHub path and how the value behaves before binding it to a dashboard. For new cars, [irTelemetryExplorer](https://svappslab.com/iRacing/TelemetryExplorer/) can export field metadata from a live session or `.ibt` file as CSV. Match by `sdk_field` and log the car, session, and source for new observations. Session YAML and plugin-defined SimHub properties are additional data sources to catalog as needed. Recorded fields alone cannot establish live availability.
+For new cars, [irTelemetryExplorer](https://svappslab.com/iRacing/TelemetryExplorer/) can export field metadata from a live session or `.ibt` file as CSV. Match by `sdk_field` and log the car, session, and source for new observations. Session YAML and plugin-defined SimHub properties are additional data sources to catalog as needed. Recorded fields alone cannot establish live availability.
+
+## Verify a live binding
+
+1. Start an iRacing Test Drive in a car that exposes the setting you want to verify. Enter the cockpit and confirm SimHub receives live RPM or gear.
+2. Open **Available Properties** and look up the shared property from [simhub.csv](simhub.csv). In Dash Studio's property picker, enable **Show game specific properties** to see raw fields. For brake bias, start with `DataCorePlugin.GameData.BrakeBias` and compare it with `dcBrakeBias` if available. [SimHub binding guide](https://github.com/SHWotever/SimHub/wiki/Dash-Studio---Bindings)
+3. Note the SimHub and cockpit values at baseline, one step up, and one step back. Check they agree or identify the needed format or conversion. Confirm the value holds steady between changes. A `SessionData.CarSetup` value may describe the starting setup, so check it against a live adjustment before using it.
+4. Record the simulator, car, session, SimHub version, exact property path, observed values, and units. Record missing or static signals for that car too.
+5. Where possible, record two setting changes less than five seconds apart, then at least six seconds of steady telemetry. Confirm SimHub Replay reproduces both changes before using the recording for popup timer checks. [SimHub Record and Replay](https://github.com/SHWotever/SimHub/wiki/NCalc-scripting---Introduction)
 
 ## Sources
 
