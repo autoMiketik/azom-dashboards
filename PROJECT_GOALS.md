@@ -9,7 +9,7 @@ Create useful dashboards for the MOZA CS Pro and KS Pro wheels, using SimHub tel
 ## Initial goals
 
 - Design clear, readable dashboard layouts for the wheel's display.
-- Maintain an [iRacing telemetry catalog](telemetry/README.md) for designing main dashboards and popups.
+- Use shared SimHub properties and computed values for dashboard bindings where available. Maintain a [SimHub property map and iRacing SDK catalog](telemetry/README.md) for main dashboards and popups.
 - Use AZOM to connect SimHub telemetry to the MOZA wheel dashboards.
 - Include ATSR-Hub EVO in the required SimHub integration scope.
 - Confirm the dashboard format and upload workflow for the target wheel.

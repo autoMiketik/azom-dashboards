@@ -1,4 +1,24 @@
-# iRacing telemetry catalog
+# Telemetry catalogs
+
+## SimHub dashboard property map
+
+Search [simhub.csv](simhub.csv) first when choosing dashboard bindings. It contains shared `DataCorePlugin.GameData` fields from AZOM's channel catalog and selected `DataCorePlugin.Computed` fuel metrics. Search by property name, label, or AZOM channel URL. Multiple URLs for one property are separated by `|` and can have different encodings or resolver behavior.
+
+| Column | Meaning |
+| --- | --- |
+| `simhub_property` | Exact source-listed SimHub property path. |
+| `kind`, `label` | Property family and search label. |
+| `azom_channel_urls` | Default associations listed in AZOM. A blank means this source supplies no default association for the property. |
+| `iracing_sdk_fallback_candidate` | Raw SDK field to investigate if the shared property is unsuitable. Check its scaling and meaning in the target car before using it. |
+| `source` | Evidence for the property name and any default association. |
+| `live_verification` | A short observation or reference to a verification note. Blank means no live check is recorded. |
+
+The map is a source-backed starting point. Actual values depend on the game, car, session, and SimHub version. Confirm them in SimHub's **Available Properties** and check the wheel binding in AZOM. [SimHub binding guide](https://github.com/SHWotever/SimHub/wiki/Dash-Studio---Bindings)
+
+- `azom-catalog` — [AZOM telemetry channel catalog at `71985a0`](https://github.com/giantorth/AZOM/blob/71985a0f4eb7e551d665df2e2676997b6b2f8eca/Data/Telemetry.json).
+- `rracingdash-fuel` — [rracingDash configuration using SimHub fuel calculations](https://github.com/chornyak/rracingDash/blob/main/SimHub/rracingDash_SimHubMapping.shsds).
+
+## iRacing SDK telemetry catalog
 
 Open [iracing.csv](iracing.csv) in a spreadsheet to filter the SDK fields for main dashboards and popups. The catalog combines the 2015 live data appendix, the pyirsdk variable list, and every field in the headers of five iRacing recordings. It covers driving, timing, fuel, tyres, session status, and in-car adjustments. The field list can grow as we see more cars and builds.
 
