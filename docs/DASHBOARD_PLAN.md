@@ -18,11 +18,17 @@ The center carries the quickest glances. Timing stays on the left and fuel stays
 | --- | --- | --- |
 | Header | x 20 and x 760, y 34. Values 26 px | Overall position left, such as `P7`. Session time remaining right, such as `24:36`, with hours when needed. |
 | Timing | x 20–239, labels at y 66, 120, 174. Values at y 96, 150, 204 | Current lap at 30 px, last and best at 28 px. Display `m:ss.sss`; allow multiple minute digits. |
-| Driving | Center x 390, speed baseline y 79, gear y 175 | Speed at 34 px with `km/h` at 16 px. Gear at 100 px, including `N` and `R`. |
+| Driving | Center x 390, speed baseline y 79, gear y 175 | Speed at 34 px with `km/h` at 16 px. Gear at 100 px, including `N` and `R`. Switch the gear digit to steady red `#FF5967` while the shift cue is active. |
 | Live delta | Center x 390, label y 199 and value y 230 | `Δ VS SESSION BEST` at 16 px and signed seconds at 34 px, e.g. `−0.28 s`. Mint `#71E6AD` for quicker, rose `#FF8994` for slower, white at zero. |
 | Fuel | Right align at x 760, same three rows as timing | Fuel remaining `36.4 L`, consumption `2.83 L/lap`, and estimated laps on fuel `12.9 laps`. Labels at 16 px, numbers at 30 px, units at 16 px. |
 
 Prefer the signed live delta because it answers whether the current lap is gaining or losing time at this point on track. Use a valid session-best reference and show a dash when the reference is unavailable. Keep the shift and flag LEDs on the ATSR-Hub EVO profile. Keep maps, pedal graphs, rival lists, and four-corner tyre data off this default page. Class position and laps to go are useful candidates for a later race strategy page. [iRacing timing, relative, and fuel displays](https://support.iracing.com/support/solutions/articles/31000167257-black-box-screen-information-and-controls) · [iRacing delta reference modes](https://support.iracing.com/support/solutions/articles/31000133605-clear-split-deltas-from-the-sim) · [AZOM and ATSR lighting](https://giant.orth.cc/guides/)
+
+### Shift cue
+
+Use the active car and gear shift cue that drives the ATSR-Hub EVO LEDs through AZOM if the installed setup exposes it for dashboard binding. Change the digit color immediately when the cue becomes active. Restore near-white when it clears or the driver shifts. Leave flashing to the LEDs. Keep the digit neutral in `N`, `R`, top gear, or when the cue or top-gear status cannot be determined. [ATSR-Hub EVO shift light release notes](https://github.com/ATSR-Alex/ATSR-Hub-EVO/releases)
+
+If the shared LED cue is unavailable, bind the AZOM dashboard channel to SimHub's `DataCorePlugin.GameData.CarSettings_RPMRedLineReached`. Treat that fallback as a redline warning. It may activate later than the shift LEDs. Verify the source in iRacing by comparing the digit with the LEDs in two forward gears, checking that red clears after an upshift, and confirming the neutral exclusions. [AZOM SimHub property reference](https://github.com/giantorth/AZOM/blob/main/docs/simhub.md)
 
 ### Race bindings to verify
 
