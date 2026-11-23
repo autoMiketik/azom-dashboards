@@ -22,13 +22,13 @@ Create useful dashboards for the MOZA CS Pro and KS Pro wheels, using SimHub tel
 - Remember the active main dashboard when the first popup opens. If another setting changes while a popup is visible, show the latest popup and restart the shared timer. Keep the same main dashboard as the return target.
 - When the timer expires, restore the saved main dashboard. For example, with a change at 0 seconds and another at 3 seconds, restore the main dashboard at 8 seconds.
 
-Start with one simulator, one main dashboard and one brake bias popup. Verify that SimHub exposes the setting and that AZOM can identify the active dashboard, select the popup, and restore the saved dashboard. The public [AZOM action reference](https://giant.orth.cc/guides/properties-and-actions/) documents next and previous actions. Confirm whether the installed version exposes direct selection and active dashboard state before building more layouts.
+Start with iRacing, one main dashboard and one brake bias popup. Use the [iRacing telemetry checklist](docs/IRACING_TELEMETRY.md) to identify the live SimHub property for the first test car. Verify that AZOM can identify the active dashboard, select the popup, and restore the saved dashboard. The public [AZOM action reference](https://giant.orth.cc/guides/properties-and-actions/) documents next and previous actions. Confirm whether the installed version exposes direct selection and active dashboard state before building more layouts.
 
 ## Decisions to confirm
 
 - CS Pro and KS Pro are confirmed compatible target wheels.
 - Display constraints and dashboard behavior for each target wheel.
-- Target simulator or simulators and the telemetry each dashboard should show.
+- First iRacing test car, the telemetry each dashboard should show, and any later simulators.
 - Dashboard design preferences and how the finished dashboards will be shared.
 
 ## Research starting point
