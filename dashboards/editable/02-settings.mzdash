@@ -1,0 +1,1834 @@
+{
+  "actions": {},
+  "binding": {},
+  "borderStyle": {
+    "allBorders": 0,
+    "allCornerRadius": 0,
+    "borderColor": {
+      "color": "#00000000",
+      "type": "SOLID"
+    },
+    "bordersBottom": 0,
+    "bordersLeft": 0,
+    "bordersRight": 0,
+    "bordersTop": 0,
+    "radiusBottomLeft": 0,
+    "radiusBottomRight": 0,
+    "radiusTopLeft": 0,
+    "radiusTopRight": 0
+  },
+  "children": [
+    {
+      "actions": {},
+      "binding": {},
+      "borderStyle": {
+        "allBorders": 0,
+        "allCornerRadius": 0,
+        "borderColor": {
+          "color": "#00000000",
+          "type": "SOLID"
+        },
+        "bordersBottom": 0,
+        "bordersLeft": 0,
+        "bordersRight": 0,
+        "bordersTop": 0,
+        "radiusBottomLeft": 0,
+        "radiusBottomRight": 0,
+        "radiusTopLeft": 0,
+        "radiusTopRight": 0
+      },
+      "children": [
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 30,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 24,
+            "y": 20
+          },
+          "id": 2,
+          "macros": {},
+          "name": "ABS label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 18,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "ABS",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/ABSLevel\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 66,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 24,
+            "y": 48
+          },
+          "id": 3,
+          "macros": {},
+          "name": "ABS value",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 48,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#67C8C1",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 3,
+            "locked": false,
+            "visible": true,
+            "width": 44,
+            "x": 122,
+            "y": 112
+          },
+          "id": 4,
+          "macros": {},
+          "name": "ABS accent",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 30,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 270,
+            "y": 20
+          },
+          "id": 5,
+          "macros": {},
+          "name": "BRAKE BIAS label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 18,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "BRAKE BIAS",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/BrakeBias\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n<=1?n*100:n).toFixed(1)+'%':'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 66,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 270,
+            "y": 48
+          },
+          "id": 6,
+          "macros": {},
+          "name": "BRAKE BIAS value",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 48,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#E8B760",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 3,
+            "locked": false,
+            "visible": true,
+            "width": 44,
+            "x": 368,
+            "y": 112
+          },
+          "id": 7,
+          "macros": {},
+          "name": "BRAKE BIAS accent",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 30,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 516,
+            "y": 20
+          },
+          "id": 8,
+          "macros": {},
+          "name": "TRACTION CONTROL label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 18,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "TRACTION CONTROL",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/TCLevel\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 66,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 516,
+            "y": 48
+          },
+          "id": 9,
+          "macros": {},
+          "name": "TRACTION CONTROL value",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 48,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#B5A1EC",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 3,
+            "locked": false,
+            "visible": true,
+            "width": 44,
+            "x": 614,
+            "y": 112
+          },
+          "id": 10,
+          "macros": {},
+          "name": "TRACTION CONTROL accent",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 30,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 24,
+            "y": 134
+          },
+          "id": 11,
+          "macros": {},
+          "name": "ENGINE MAP label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 18,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "ENGINE MAP",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/ECUMap\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 66,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 24,
+            "y": 162
+          },
+          "id": 12,
+          "macros": {},
+          "name": "ENGINE MAP value",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 48,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#7DA8EA",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 3,
+            "locked": false,
+            "visible": true,
+            "width": 44,
+            "x": 122,
+            "y": 226
+          },
+          "id": 13,
+          "macros": {},
+          "name": "ENGINE MAP accent",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 30,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 270,
+            "y": 134
+          },
+          "id": 14,
+          "macros": {},
+          "name": "ENGINE BRAKING label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 18,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "ENGINE BRAKING",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/EngineBrake\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 66,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 270,
+            "y": 162
+          },
+          "id": 15,
+          "macros": {},
+          "name": "ENGINE BRAKING value",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 48,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#E59BAA",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 3,
+            "locked": false,
+            "visible": true,
+            "width": 44,
+            "x": 368,
+            "y": 226
+          },
+          "id": 16,
+          "macros": {},
+          "name": "ENGINE BRAKING accent",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 30,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 516,
+            "y": 134
+          },
+          "id": 17,
+          "macros": {},
+          "name": "TC 2 label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 18,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "TC 2",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/TC_B\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 66,
+            "locked": false,
+            "visible": true,
+            "width": 240,
+            "x": 516,
+            "y": 162
+          },
+          "id": 18,
+          "macros": {},
+          "name": "TC 2 value",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 48,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#B6C77B",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 3,
+            "locked": false,
+            "visible": true,
+            "width": 44,
+            "x": 614,
+            "y": 226
+          },
+          "id": 19,
+          "macros": {},
+          "name": "TC 2 accent",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#34404D",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 222,
+            "locked": false,
+            "visible": true,
+            "width": 1,
+            "x": 264,
+            "y": 12
+          },
+          "id": 20,
+          "macros": {},
+          "name": "Vertical divider 1",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#34404D",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 222,
+            "locked": false,
+            "visible": true,
+            "width": 1,
+            "x": 510,
+            "y": 12
+          },
+          "id": 21,
+          "macros": {},
+          "name": "Vertical divider 2",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#34404D",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 1,
+            "locked": false,
+            "visible": true,
+            "width": 740,
+            "x": 20,
+            "y": 125
+          },
+          "id": 22,
+          "macros": {},
+          "name": "Horizontal divider",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        }
+      ],
+      "effect": {
+        "blinkDelay": 250,
+        "blinkEnabled": false,
+        "blurRadius": 0,
+        "gravitySensorEnabled": false,
+        "opacity": 100,
+        "rotation": 0
+      },
+      "general": {
+        "backgroundColor": {
+          "color": "#0D1117",
+          "type": "SOLID"
+        },
+        "borderColor": {
+          "color": "#00000000",
+          "type": "SOLID"
+        },
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "height": 248,
+        "locked": false,
+        "visible": true,
+        "width": 780,
+        "x": 0,
+        "y": 0
+      },
+      "guides": [],
+      "id": 1,
+      "image": {
+        "src": ""
+      },
+      "macros": {},
+      "name": "MOZA Settings",
+      "plugins": [],
+      "type": "Screen.qml"
+    }
+  ],
+  "effect": {
+    "gravitySensorEnabled": false,
+    "rotation": 0
+  },
+  "general": {
+    "backgroundColor": {
+      "color": "#0D1117",
+      "type": "SOLID"
+    },
+    "borderColor": {
+      "color": "#00000000",
+      "type": "SOLID"
+    },
+    "borderRadius": 0,
+    "borderWidth": 0,
+    "height": 248,
+    "locked": false,
+    "visible": true,
+    "width": 780,
+    "x": 0,
+    "y": 0
+  },
+  "id": 0,
+  "imageResources": [],
+  "lastModified": 1795422285,
+  "macros": {},
+  "name": "MOZA Settings",
+  "plugins": [],
+  "type": "Window.qml",
+  "version": "1.1.1",
+  "window": {
+    "GUID": "{0e8440d5-71c5-4b24-bea3-97328ea9f44a}",
+    "defaultScreenId": 0,
+    "idealDeviceInfos": [
+      {
+        "deviceId": 8,
+        "hardwareVersion": "RS21-W18-HW RGB-DU-V11",
+        "networkId": 1,
+        "productType": "W18 Display"
+      }
+    ]
+  }
+}

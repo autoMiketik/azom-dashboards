@@ -1,0 +1,2000 @@
+{
+  "actions": {},
+  "binding": {},
+  "borderStyle": {
+    "allBorders": 0,
+    "allCornerRadius": 0,
+    "borderColor": {
+      "color": "#00000000",
+      "type": "SOLID"
+    },
+    "bordersBottom": 0,
+    "bordersLeft": 0,
+    "bordersRight": 0,
+    "bordersTop": 0,
+    "radiusBottomLeft": 0,
+    "radiusBottomRight": 0,
+    "radiusTopLeft": 0,
+    "radiusTopRight": 0
+  },
+  "children": [
+    {
+      "actions": {},
+      "binding": {},
+      "borderStyle": {
+        "allBorders": 0,
+        "allCornerRadius": 0,
+        "borderColor": {
+          "color": "#00000000",
+          "type": "SOLID"
+        },
+        "bordersBottom": 0,
+        "bordersLeft": 0,
+        "bordersRight": 0,
+        "bordersTop": 0,
+        "radiusBottomLeft": 0,
+        "radiusBottomRight": 0,
+        "radiusTopLeft": 0,
+        "radiusTopRight": 0
+      },
+      "children": [
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/CurrentPos\").value",
+                "((v)=>{const n=Number(v);return Number.isFinite(n)&&n>=0?'P'+n:'P—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 100,
+            "x": 20,
+            "y": 4
+          },
+          "id": 2,
+          "macros": {},
+          "name": "Position",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 25,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignLeft",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "P—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/SessionTimeLeft\").value",
+                "((v)=>{const n=Number(v);if(!Number.isFinite(n)||n<0)return '--:--.---';const m=Math.floor(n/60),whole=Math.floor(n%60),ms=Math.floor((n%1)*1000);return String(m)+':'+String(whole).padStart(2,'0')+'.'+String(ms).padStart(3,'0');})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 180,
+            "x": 580,
+            "y": 4
+          },
+          "id": 3,
+          "macros": {},
+          "name": "Session time",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 25,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignRight",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "--:--",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#34404D",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 166,
+            "locked": false,
+            "visible": true,
+            "width": 1,
+            "x": 258,
+            "y": 55
+          },
+          "id": 4,
+          "macros": {},
+          "name": "Timing divider",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 5,
+            "allCornerRadius": 10,
+            "borderColor": {
+              "color": "#333333",
+              "type": "SOLID"
+            },
+            "bordersBottom": 5,
+            "bordersLeft": 5,
+            "bordersRight": 5,
+            "bordersTop": 5,
+            "radiusBottomLeft": 10,
+            "radiusBottomRight": 10,
+            "radiusTopLeft": 10,
+            "radiusTopRight": 10
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#34404D",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 166,
+            "locked": false,
+            "visible": true,
+            "width": 1,
+            "x": 555,
+            "y": 55
+          },
+          "id": 5,
+          "macros": {},
+          "name": "Driving divider",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 22,
+            "locked": false,
+            "visible": true,
+            "width": 220,
+            "x": 20,
+            "y": 58
+          },
+          "id": 6,
+          "macros": {},
+          "name": "CURRENT LAP label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignLeft",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "CURRENT LAP",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/CurrentLapTime\").value",
+                "((v)=>{const n=Number(v);if(!Number.isFinite(n)||n<0)return '--:--.---';const m=Math.floor(n/60),whole=Math.floor(n%60),ms=Math.floor((n%1)*1000);return String(m)+':'+String(whole).padStart(2,'0')+'.'+String(ms).padStart(3,'0');})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 220,
+            "x": 20,
+            "y": 77
+          },
+          "id": 7,
+          "macros": {},
+          "name": "CURRENT LAP",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 30,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignLeft",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "--:--.---",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 22,
+            "locked": false,
+            "visible": true,
+            "width": 220,
+            "x": 20,
+            "y": 113
+          },
+          "id": 8,
+          "macros": {},
+          "name": "LAST LAP label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignLeft",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "LAST LAP",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/LastLapTime\").value",
+                "((v)=>{const n=Number(v);if(!Number.isFinite(n)||n<0)return '--:--.---';const m=Math.floor(n/60),whole=Math.floor(n%60),ms=Math.floor((n%1)*1000);return String(m)+':'+String(whole).padStart(2,'0')+'.'+String(ms).padStart(3,'0');})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 220,
+            "x": 20,
+            "y": 132
+          },
+          "id": 9,
+          "macros": {},
+          "name": "LAST LAP",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 28,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignLeft",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "--:--.---",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 22,
+            "locked": false,
+            "visible": true,
+            "width": 220,
+            "x": 20,
+            "y": 168
+          },
+          "id": 10,
+          "macros": {},
+          "name": "BEST LAP label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignLeft",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "BEST LAP",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/BestLapTime\").value",
+                "((v)=>{const n=Number(v);if(!Number.isFinite(n)||n<0)return '--:--.---';const m=Math.floor(n/60),whole=Math.floor(n%60),ms=Math.floor((n%1)*1000);return String(m)+':'+String(whole).padStart(2,'0')+'.'+String(ms).padStart(3,'0');})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 220,
+            "x": 20,
+            "y": 187
+          },
+          "id": 11,
+          "macros": {},
+          "name": "BEST LAP",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 28,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignLeft",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "--:--.---",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/SpeedKmh\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)?n.toFixed(0)+'':'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 46,
+            "locked": false,
+            "visible": true,
+            "width": 250,
+            "x": 280,
+            "y": 55
+          },
+          "id": 12,
+          "macros": {},
+          "name": "Speed",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 36,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 30,
+            "locked": false,
+            "visible": true,
+            "width": 65,
+            "x": 476,
+            "y": 62
+          },
+          "id": 13,
+          "macros": {},
+          "name": "Speed unit",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 16,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignLeft",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "km/h",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/Gear\").value",
+                "((n)=>{const v=Number(n);if(!Number.isFinite(v))return '—';if(v===0)return 'N';if(v===-1)return 'R';return String(Math.abs(v));})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 102,
+            "locked": false,
+            "visible": true,
+            "width": 210,
+            "x": 300,
+            "y": 97
+          },
+          "id": 14,
+          "macros": {},
+          "name": "Gear",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 94,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "N",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 21,
+            "locked": false,
+            "visible": true,
+            "width": 210,
+            "x": 300,
+            "y": 195
+          },
+          "id": 15,
+          "macros": {},
+          "name": "Delta label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "Δ VS SESSION BEST",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/GAP\").value",
+                "((v)=>{const n=Number(v);if(!Number.isFinite(n))return '—';return (n<0?'−':n>0?'+':'')+Math.abs(n).toFixed(2)+' s';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 30,
+            "locked": false,
+            "visible": true,
+            "width": 230,
+            "x": 290,
+            "y": 214
+          },
+          "id": 16,
+          "macros": {},
+          "name": "Live delta",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 30,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 22,
+            "locked": false,
+            "visible": true,
+            "width": 190,
+            "x": 570,
+            "y": 58
+          },
+          "id": 17,
+          "macros": {},
+          "name": "FUEL LEFT label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignRight",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "FUEL LEFT",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/Fuel\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)?n.toFixed(1)+' L':'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 190,
+            "x": 570,
+            "y": 77
+          },
+          "id": 18,
+          "macros": {},
+          "name": "FUEL LEFT",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 30,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignRight",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 22,
+            "locked": false,
+            "visible": true,
+            "width": 190,
+            "x": 570,
+            "y": 113
+          },
+          "id": 19,
+          "macros": {},
+          "name": "FUEL PER LAP label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignRight",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "FUEL PER LAP",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/FuelConsumeLap\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)?n.toFixed(2)+' L/lap':'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 190,
+            "x": 570,
+            "y": 132
+          },
+          "id": 20,
+          "macros": {},
+          "name": "FUEL PER LAP",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 28,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignRight",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {},
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 22,
+            "locked": false,
+            "visible": true,
+            "width": 190,
+            "x": 570,
+            "y": 168
+          },
+          "id": 21,
+          "macros": {},
+          "name": "EST. FUEL LAPS label",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 15,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignRight",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "EST. FUEL LAPS",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/FuelLaps\").value",
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)?n.toFixed(1)+' laps':'—';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 190,
+            "x": 570,
+            "y": 187
+          },
+          "id": 22,
+          "macros": {},
+          "name": "EST. FUEL LAPS",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 28,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignRight",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "—",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        }
+      ],
+      "effect": {
+        "blinkDelay": 250,
+        "blinkEnabled": false,
+        "blurRadius": 0,
+        "gravitySensorEnabled": false,
+        "opacity": 100,
+        "rotation": 0
+      },
+      "general": {
+        "backgroundColor": {
+          "color": "#0D1117",
+          "type": "SOLID"
+        },
+        "borderColor": {
+          "color": "#00000000",
+          "type": "SOLID"
+        },
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "height": 248,
+        "locked": false,
+        "visible": true,
+        "width": 780,
+        "x": 0,
+        "y": 0
+      },
+      "guides": [],
+      "id": 1,
+      "image": {
+        "src": ""
+      },
+      "macros": {},
+      "name": "MOZA Race",
+      "plugins": [],
+      "type": "Screen.qml"
+    }
+  ],
+  "effect": {
+    "gravitySensorEnabled": false,
+    "rotation": 0
+  },
+  "general": {
+    "backgroundColor": {
+      "color": "#0D1117",
+      "type": "SOLID"
+    },
+    "borderColor": {
+      "color": "#00000000",
+      "type": "SOLID"
+    },
+    "borderRadius": 0,
+    "borderWidth": 0,
+    "height": 248,
+    "locked": false,
+    "visible": true,
+    "width": 780,
+    "x": 0,
+    "y": 0
+  },
+  "id": 0,
+  "imageResources": [],
+  "lastModified": 1795422285,
+  "macros": {},
+  "name": "MOZA Race",
+  "plugins": [],
+  "type": "Window.qml",
+  "version": "1.1.1",
+  "window": {
+    "GUID": "{d8bcf8fd-761e-4576-a8dc-c7184e9f626d}",
+    "defaultScreenId": 0,
+    "idealDeviceInfos": [
+      {
+        "deviceId": 8,
+        "hardwareVersion": "RS21-W18-HW RGB-DU-V11",
+        "networkId": 1,
+        "productType": "W18 Display"
+      }
+    ]
+  }
+}
