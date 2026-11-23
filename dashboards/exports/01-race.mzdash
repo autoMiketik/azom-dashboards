@@ -1103,6 +1103,13 @@
                 "((n)=>{const v=Number(n);if(!Number.isFinite(v))return '—';if(v===0)return 'N';if(v===-1)return 'R';return String(Math.abs(v));})(_result)"
               ],
               "type": "METHOD_CHAINING"
+            },
+            "text.fontColor.color": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/CarSettings_RPMShiftLight2\").value",
+                "((v)=>v===true||Number(v)>0?'#FF5967':'#F4F7FB')(_result)"
+              ],
+              "type": "METHOD_CHAINING"
             }
           },
           "borderStyle": {
@@ -1283,6 +1290,13 @@
               "methods": [
                 "Telemetry.get(\"v1/gameData/GAP\").value",
                 "((v)=>{const n=Number(v);if(!Number.isFinite(n))return '—';return (n<0?'−':n>0?'+':'')+Math.abs(n).toFixed(2)+' s';})(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            },
+            "text.fontColor.color": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/GAP\").value",
+                "((v)=>{const n=Number(v);if(!Number.isFinite(n))return '#F4F7FB';return n<0?'#71E6AD':n>0?'#FF8994':'#F4F7FB';})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -1979,14 +1993,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795422285,
+  "lastModified": 1795424308,
   "macros": {},
   "name": "MOZA Race",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{d8bcf8fd-761e-4576-a8dc-c7184e9f626d}",
+    "GUID": "{b0288507-0edd-48c1-ab70-6d32440c61ae}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {

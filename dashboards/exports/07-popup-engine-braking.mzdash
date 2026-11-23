@@ -200,7 +200,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/EngineBrake\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return n.toFixed(0);})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -351,14 +351,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795422285,
+  "lastModified": 1795424308,
   "macros": {},
   "name": "MOZA Popup Engine Braking",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{98f039cf-b3a9-4540-a845-58c8d5f8c08e}",
+    "GUID": "{6ac938f6-45cd-4c5b-ba31-818c5e088cb6}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {

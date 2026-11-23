@@ -200,7 +200,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/ABSLevel\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return n.toFixed(0);})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -351,14 +351,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795422285,
+  "lastModified": 1795424308,
   "macros": {},
   "name": "MOZA Popup Abs",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{e4523cc4-4d2f-4659-be9e-610cd6f6edcd}",
+    "GUID": "{a17a20d5-1f8c-415b-8ba0-fbd3f2896e37}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {

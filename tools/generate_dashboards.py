@@ -156,9 +156,25 @@ def race() -> dict:
              url="v1/gameData/Gear",
              formatter="((n)=>{const v=Number(n);if(!Number.isFinite(v))return '—';if(v===0)return 'N';if(v===-1)return 'R';return String(Math.abs(v));})(_result)"),
         text("Delta label", "Δ VS SESSION BEST", 300, 195, 210, 21, 15, MUTED),
-        text("Live delta", "—", 290, 214, 230, 30, 30,
-             url="v1/gameData/GAP", formatter=js_delta()),
     ])
+    gear = next(item for item in e if item.get("name") == "Gear")
+    gear["binding"]["text.fontColor.color"] = {
+        "methods": [
+            'Telemetry.get("v1/gameData/CarSettings_RPMShiftLight2").value',
+            "((v)=>v===true||Number(v)>0?'#FF5967':'#F4F7FB')(_result)",
+        ],
+        "type": "METHOD_CHAINING",
+    }
+    delta = text("Live delta", "—", 290, 214, 230, 30, 30,
+                 url="v1/gameData/GAP", formatter=js_delta())
+    delta["binding"]["text.fontColor.color"] = {
+        "methods": [
+            'Telemetry.get("v1/gameData/GAP").value',
+            "((v)=>{const n=Number(v);if(!Number.isFinite(n))return '#F4F7FB';return n<0?'#71E6AD':n>0?'#FF8994':'#F4F7FB';})(_result)",
+        ],
+        "type": "METHOD_CHAINING",
+    }
+    e.append(delta)
     right = [
         ("FUEL LEFT", "Fuel", 58, 30, 1, " L"),
         ("FUEL PER LAP", "FuelConsumeLap", 113, 28, 2, " L/lap"),
@@ -180,10 +196,15 @@ def settings() -> dict:
     for index, (slug, label, prop, _bg, accent, _fallback) in enumerate(SETTINGS):
         row, col = divmod(index, 3)
         x, y = xs[col], ys[row]
+        is_bias = slug == "brake-bias"
+        invalid = "!Number.isFinite(n)" if is_bias else "!Number.isFinite(n)||n<0"
+        value = "Math.abs(n)<=1?n*100:n" if is_bias else "n"
+        decimals = 1 if is_bias else 0
+        suffix = "+'%'" if is_bias else ""
         e.append(text(label + " label", label, x, y, 240, 30, 18, MUTED))
         e.append(text(label + " value", "—", x, y + 28, 240, 66, 48,
                       url="v1/gameData/" + prop,
-                      formatter="((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n" + ("<=1?n*100:n" if slug == "brake-bias" else "") + ").toFixed(" + ("1" if slug == "brake-bias" else "0") + ")" + ("+'%'" if slug == "brake-bias" else "") + ":'—';})(_result)"))
+                      formatter=f"((v)=>{{if(v===undefined||v===null)return '—';const n=Number(v);if({invalid})return '—';return ({value}).toFixed({decimals}){suffix};}})(_result)"))
         e.append(rect(label + " accent", x + 98, y + 92, 44, 3, accent))
     e.extend([rect("Vertical divider 1", 264, 12, 1, 222, RULE),
               rect("Vertical divider 2", 510, 12, 1, 222, RULE),
@@ -193,11 +214,16 @@ def settings() -> dict:
 
 def popup(record: tuple) -> dict:
     slug, label, prop, background, accent, _fallback = record
+    is_bias = slug == "brake-bias"
+    invalid = "!Number.isFinite(n)" if is_bias else "!Number.isFinite(n)||n<0"
+    value = "Math.abs(n)<=1?n*100:n" if is_bias else "n"
+    decimals = 1 if is_bias else 0
+    suffix = "+'%'" if is_bias else ""
     e = [rect("Popup accent", 0, 0, WIDTH, 4, accent),
          text("Popup setting", label, 60, 44, 660, 34, 24, MUTED),
          text("Popup value", "—", 80, 93, 620, 118, 92,
               url="v1/gameData/" + prop,
-              formatter="((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';" + ("const p=n<=1?n*100:n;return p.toFixed(1)+'%';" if slug == "brake-bias" else "return n.toFixed(0);") + "})(_result)")]
+              formatter=f"((v)=>{{if(v===undefined||v===null)return '—';const n=Number(v);if({invalid})return '—';return ({value}).toFixed({decimals}){suffix};}})(_result)")]
     return make_dashboard("MOZA Popup " + label.title(), e, background)
 
 
@@ -217,6 +243,12 @@ def main() -> None:
             archive.write(EXPORTS / filename, arcname=filename)
         archive.write(ROOT / "dashboards/README.md", arcname="README.md")
         archive.write(ROOT / "dashboards/bindings.csv", arcname="bindings.csv")
+        archive.write(ROOT / "dashboards/controller/controller.json",
+                      arcname="controller/controller.json")
+        archive.write(ROOT / "dashboards/controller/dashboard_controller.py",
+                      arcname="controller/dashboard_controller.py")
+        archive.write(ROOT / "dashboards/controller/run_controller.bat",
+                      arcname="controller/run_controller.bat")
         archive.write(ROOT / "docs/mockups/dashboard-preview.png",
                       arcname="dashboard-preview.png")
     print(f"Generated {len(docs)} dashboards in {EDITABLE} and {EXPORTS}")

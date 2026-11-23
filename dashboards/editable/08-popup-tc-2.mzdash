@@ -200,7 +200,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/TC_B\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return n.toFixed(0);})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -351,14 +351,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795422285,
+  "lastModified": 1795424308,
   "macros": {},
   "name": "MOZA Popup Tc 2",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{affa3d82-3e4a-4849-994d-15f230f0afeb}",
+    "GUID": "{d7412ffc-0b0d-445d-8ef5-a20925d569fe}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {

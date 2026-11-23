@@ -1,0 +1,71 @@
+{
+  "property_server_host": "127.0.0.1",
+  "property_server_port": 18082,
+  "simhub_exe": "C:\\Program Files (x86)\\SimHub\\SimHubWPF.exe",
+  "popup_duration_seconds": 5.0,
+  "page_change_timeout_seconds": 2.0,
+  "dashboard_order": [
+    "MOZA Race",
+    "MOZA Settings",
+    "MOZA Popup Abs",
+    "MOZA Popup Brake Bias",
+    "MOZA Popup Traction Control",
+    "MOZA Popup Engine Map",
+    "MOZA Popup Engine Braking",
+    "MOZA Popup Tc 2"
+  ],
+  "main_dashboards": [
+    "MOZA Race",
+    "MOZA Settings"
+  ],
+  "properties": {
+    "dashboard": "AZOM.DashboardName",
+    "wheel_connected": "AZOM.BaseConnected",
+    "game_running": "DataCorePlugin.GameRunning",
+    "game": "DataCorePlugin.GameName",
+    "car": "DataCorePlugin.GameData.CarId",
+    "track": "DataCorePlugin.GameData.TrackId",
+    "session": "DataCorePlugin.GameData.SessionTypeName",
+    "session_restart": "DataCorePlugin.GameData.IsSessionRestart"
+  },
+  "settings": [
+    {
+      "name": "Brake Bias",
+      "property": "DataCorePlugin.GameData.BrakeBias",
+      "popup": "MOZA Popup Brake Bias",
+      "decimals": 1,
+      "percent_scale": true,
+      "allow_negative": true
+    },
+    {
+      "name": "ABS",
+      "property": "DataCorePlugin.GameData.ABSLevel",
+      "popup": "MOZA Popup Abs",
+      "decimals": 0
+    },
+    {
+      "name": "Traction Control",
+      "property": "DataCorePlugin.GameData.TCLevel",
+      "popup": "MOZA Popup Traction Control",
+      "decimals": 0
+    },
+    {
+      "name": "Engine Map",
+      "property": "DataCorePlugin.GameData.ECUMap",
+      "popup": "MOZA Popup Engine Map",
+      "decimals": 0
+    },
+    {
+      "name": "Engine Braking",
+      "property": "DataCorePlugin.GameData.EngineBrake",
+      "popup": "MOZA Popup Engine Braking",
+      "decimals": 0
+    },
+    {
+      "name": "TC 2",
+      "property": "DataCorePlugin.GameData.TC_B",
+      "popup": "MOZA Popup Tc 2",
+      "decimals": 0
+    }
+  ]
+}

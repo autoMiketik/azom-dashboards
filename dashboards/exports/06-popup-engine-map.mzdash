@@ -200,7 +200,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/ECUMap\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return n.toFixed(0);})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -351,14 +351,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795422285,
+  "lastModified": 1795424308,
   "macros": {},
   "name": "MOZA Popup Engine Map",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{d7ed9015-94d5-4a26-a991-067faababdd3}",
+    "GUID": "{0ea3449a-9b07-4d7c-9bf3-9efee3a11471}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {

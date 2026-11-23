@@ -131,7 +131,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/ABSLevel\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -382,7 +382,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/BrakeBias\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n<=1?n*100:n).toFixed(1)+'%':'—';})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n))return '—';return (Math.abs(n)<=1?n*100:n).toFixed(1)+'%';})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -633,7 +633,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/TCLevel\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -884,7 +884,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/ECUMap\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -1135,7 +1135,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/EngineBrake\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -1386,7 +1386,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/TC_B\").value",
-                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);return Number.isFinite(n)&&n>=0?(n).toFixed(0):'—';})(_result)"
+                "((v)=>{if(v===undefined||v===null)return '—';const n=Number(v);if(!Number.isFinite(n)||n<0)return '—';return (n).toFixed(0);})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -1813,14 +1813,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795422285,
+  "lastModified": 1795424308,
   "macros": {},
   "name": "MOZA Settings",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{0e8440d5-71c5-4b24-bea3-97328ea9f44a}",
+    "GUID": "{1108b3a6-f83c-4c1f-9a36-6c432a7a1f36}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {
