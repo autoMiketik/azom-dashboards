@@ -12,7 +12,7 @@ Race,Fuel remaining,DataCorePlugin.GameData.Fuel,v1/gameData/Fuel,"1 decimal L",
 Race,Fuel per lap,DataCorePlugin.Computed.Fuel_LitersPerLap,v1/gameData/FuelConsumeLap,"2 decimals L/lap",map this AZOM channel to the SimHub computed property; live check required
 Race,Estimated fuel laps,DataCorePlugin.Computed.Fuel_RemainingLaps,v1/gameData/FuelLaps,"1 decimal laps",map this AZOM channel to the SimHub computed property; live check required
 Settings,ABS,DataCorePlugin.GameData.ABSLevel,v1/gameData/ABSLevel,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check
-Settings,Brake Bias,DataCorePlugin.GameData.BrakeBias,v1/gameData/BrakeBias,"one decimal percent; values with absolute magnitude <=1 scaled by 100",catalog only; sign, scale, and invalid sentinel require live comparison with dcBrakeBias and cockpit
+Settings,Brake Bias,DataCorePlugin.GameData.BrakeBias,v1/gameData/BrakeBias,"one decimal percent; values with absolute magnitude <=1 scaled by 100","catalog only; sign, scale, and invalid sentinel require live comparison with dcBrakeBias and cockpit"
 Settings,Traction Control,DataCorePlugin.GameData.TCLevel,v1/gameData/TCLevel,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check
 Settings,Engine Map,DataCorePlugin.GameData.ECUMap,v1/gameData/ECUMap,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check
 Settings,Engine Braking,DataCorePlugin.GameData.EngineBrake,v1/gameData/EngineBrake,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check

@@ -241,7 +241,7 @@ def main() -> None:
                          compression=zipfile.ZIP_DEFLATED) as archive:
         for filename, _ in docs:
             archive.write(EXPORTS / filename, arcname=filename)
-        archive.write(ROOT / "dashboards/README.md", arcname="README.md")
+        archive.write(ROOT / "dashboards/INSTALL.md", arcname="README.md")
         archive.write(ROOT / "dashboards/bindings.csv", arcname="bindings.csv")
         archive.write(ROOT / "dashboards/controller/controller.json",
                       arcname="controller/controller.json")
