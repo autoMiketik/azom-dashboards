@@ -19,6 +19,7 @@ BG = "#0D1117"
 WHITE = "#F4F7FB"
 MUTED = "#AEBBCA"
 RULE = "#34404D"
+NOTICE_CHANNEL = "v1/gameData/SessionTypeName"
 
 SETTINGS = [
     ("ABS", "ABSLevel", "#67C8C1"),
@@ -112,6 +113,41 @@ def text(name: str, value: str, x: float, y: float, w: float, h: float,
                   align=align, url=url, formatter=formatter)
 
 
+def add_setting_notice_overlay(children: list[dict]) -> None:
+    backdrop = rect("Setting change backdrop", 0, 0, WIDTH, HEIGHT, "#00000000")
+    backdrop["borderStyle"] = {
+        "allBorders": 0,
+        "allCornerRadius": 0,
+        "borderColor": color("#00000000"),
+        "bordersBottom": 0,
+        "bordersLeft": 0,
+        "bordersRight": 0,
+        "bordersTop": 0,
+        "radiusBottomLeft": 0,
+        "radiusBottomRight": 0,
+        "radiusTopLeft": 0,
+        "radiusTopRight": 0,
+    }
+    backdrop["binding"]["general.backgroundColor.color"] = {
+        "methods": [
+            f'Telemetry.get("{NOTICE_CHANNEL}").value',
+            "((v)=>v===undefined||v===null||String(v)===''?'#00000000':'#0D1117')(_result)",
+        ],
+        "type": "METHOD_CHAINING",
+    }
+    children.append(backdrop)
+    children.append(text(
+        "Setting change heading", "", 20, 42, 740, 40, 24, MUTED,
+        url=NOTICE_CHANNEL,
+        formatter="((v)=>v===undefined||v===null||String(v)===''?'':'SETTING CHANGED')(_result)",
+    ))
+    children.append(text(
+        "Setting change notice", "", 20, 82, 740, 100, 64,
+        url=NOTICE_CHANNEL,
+        formatter="((v)=>v===undefined||v===null?'':String(v))(_result)",
+    ))
+
+
 def make_dashboard(name: str, children: list[dict], background: str = BG) -> dict:
     root = copy.deepcopy(ROOT_TEMPLATE)
     screen = copy.deepcopy(SCREEN_TEMPLATE)
@@ -133,9 +169,6 @@ def race() -> dict:
     e = [
         text("Position", "P—", 20, 4, 100, 34, 25, align="AlignLeft",
              url="v1/gameData/CurrentPos", formatter="((v)=>{const n=Number(v);return Number.isFinite(n)&&n>=0?'P'+n:'P—';})(_result)"),
-        text("Setting change notice", "", 250, 4, 280, 34, 20,
-             url="v1/gameData/SessionTypeName",
-             formatter="((v)=>v===undefined||v===null?'':String(v))(_result)"),
         text("Session time", "--:--", 580, 4, 180, 34, 25, align="AlignRight",
              url="v1/gameData/SessionTimeLeft", formatter=js_time()),
         rect("Timing divider", 258, 55, 1, 166, RULE),
@@ -189,6 +222,7 @@ def race() -> dict:
         e.append(text(label, "—", 570, y + 19, 190, 34, size,
                       align="AlignRight", url="v1/gameData/" + prop,
                       formatter=js_number(digits, suffix)))
+    add_setting_notice_overlay(e)
     return make_dashboard("MOZA Race", e)
 
 
@@ -196,9 +230,6 @@ def settings() -> dict:
     e = []
     xs = [24, 270, 516]
     ys = [42, 136]
-    e.append(text("Setting change notice", "", 250, 4, 280, 30, 20,
-                  url="v1/gameData/SessionTypeName",
-                  formatter="((v)=>v===undefined||v===null?'':String(v))(_result)"))
     for index, (label, prop, accent) in enumerate(SETTINGS):
         row, col = divmod(index, 3)
         x, y = xs[col], ys[row]
@@ -215,6 +246,7 @@ def settings() -> dict:
     e.extend([rect("Vertical divider 1", 264, 40, 1, 190, RULE),
               rect("Vertical divider 2", 510, 40, 1, 190, RULE),
               rect("Horizontal divider", 20, 130, 740, 1, RULE)])
+    add_setting_notice_overlay(e)
     return make_dashboard("MOZA Settings", e)
 
 

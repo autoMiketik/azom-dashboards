@@ -11,11 +11,11 @@ Race,Gear shift cue color,"if([DataCorePlugin.GameData.CarSettings_RPMShiftLight
 Race,Fuel remaining,DataCorePlugin.GameData.Fuel,v1/gameData/Fuel,"1 decimal L",catalog only; units require live check
 Race,Fuel per lap,DataCorePlugin.Computed.Fuel_LitersPerLap,v1/gameData/FuelConsumeLap,"2 decimals L/lap",map this AZOM channel to the SimHub computed property; live check required
 Race,Estimated fuel laps,DataCorePlugin.Computed.Fuel_RemainingLaps,v1/gameData/FuelLaps,"1 decimal laps",map this AZOM channel to the SimHub computed property; live check required
-Race,Setting change notice,Formula in setting-change-notice.js,v1/gameData/SessionTypeName,"label and value; blank except for five seconds after a setting change","AZOM formula mapping; first sample seeds a baseline; live check required"
+Race,Setting change overlay,Formula in setting-change-notice.js,v1/gameData/SessionTypeName,"full-screen label and value for five seconds after a setting change","AZOM formula mapping; first sample seeds a baseline; live check required"
 Settings,ABS,DataCorePlugin.GameData.ABSLevel,v1/gameData/ABSLevel,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check
 Settings,Brake Bias,DataCorePlugin.GameData.BrakeBias,v1/gameData/BrakeBias,"one decimal percent; values with absolute magnitude <=1 scaled by 100","catalog only; sign, scale, and invalid sentinel require live comparison with dcBrakeBias and cockpit"
 Settings,Traction Control,DataCorePlugin.GameData.TCLevel,v1/gameData/TCLevel,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check
 Settings,Engine Map,DataCorePlugin.GameData.ECUMap,v1/gameData/ECUMap,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check
 Settings,Engine Braking,DataCorePlugin.GameData.EngineBrake,v1/gameData/EngineBrake,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check
 Settings,TC 2,DataCorePlugin.GameData.TC_B,v1/gameData/TC_B,"integer; negative/unavailable becomes em dash",catalog only; car-specific meaning requires live check
-Settings,Setting change notice,Formula in setting-change-notice.js,v1/gameData/SessionTypeName,"label and value; blank except for five seconds after a setting change","AZOM formula mapping; first sample seeds a baseline; live check required"
+Settings,Setting change overlay,Formula in setting-change-notice.js,v1/gameData/SessionTypeName,"full-screen label and value for five seconds after a setting change","AZOM formula mapping; first sample seeds a baseline; live check required"

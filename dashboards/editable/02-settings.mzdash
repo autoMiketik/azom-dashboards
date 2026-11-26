@@ -40,101 +40,6 @@
       "children": [
         {
           "actions": {},
-          "binding": {
-            "text.text": {
-              "methods": [
-                "Telemetry.get(\"v1/gameData/SessionTypeName\").value",
-                "((v)=>v===undefined||v===null?'':String(v))(_result)"
-              ],
-              "type": "METHOD_CHAINING"
-            }
-          },
-          "borderStyle": {
-            "allBorders": 0,
-            "allCornerRadius": 0,
-            "borderColor": {
-              "color": "#00000000",
-              "type": "SOLID"
-            },
-            "bordersBottom": 0,
-            "bordersLeft": 0,
-            "bordersRight": 0,
-            "bordersTop": 0,
-            "radiusBottomLeft": 0,
-            "radiusBottomRight": 0,
-            "radiusTopLeft": 0,
-            "radiusTopRight": 0
-          },
-          "children": [],
-          "effect": {
-            "blinkDelay": 250,
-            "blinkEnabled": false,
-            "blurRadius": 0,
-            "gravitySensorEnabled": false,
-            "opacity": 100,
-            "outerShadow": {
-              "blur": 0,
-              "color": {
-                "color": "#00000000",
-                "type": "SOLID"
-              },
-              "depth": 0,
-              "direction": 0
-            },
-            "rotation": 0
-          },
-          "general": {
-            "backgroundColor": {
-              "color": "#00000000",
-              "type": "SOLID"
-            },
-            "borderColor": {
-              "color": "#00000000",
-              "type": "SOLID"
-            },
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 30,
-            "locked": false,
-            "visible": true,
-            "width": 280,
-            "x": 250,
-            "y": 4
-          },
-          "id": 2,
-          "macros": {},
-          "name": "Setting change notice",
-          "plugins": [],
-          "text": {
-            "fontColor": {
-              "color": "#F4F7FB",
-              "type": "SOLID"
-            },
-            "fontFamily": "Manrope3",
-            "fontSize": 20,
-            "fontWeight": 700,
-            "horizontalAlignment": "AlignCenter",
-            "paddingBottom": 0,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-            "paddingTop": 0,
-            "text": "",
-            "verticalAlignment": "AlignCenter",
-            "wrapText": false
-          },
-          "textEffect": {
-            "shadowBlur": 0,
-            "shadowColor": {
-              "color": "#00000000",
-              "type": "SOLID"
-            },
-            "shadowDepth": 0,
-            "shadowDirection": 0
-          },
-          "type": "Text.qml"
-        },
-        {
-          "actions": {},
           "binding": {},
           "borderStyle": {
             "allBorders": 0,
@@ -188,7 +93,7 @@
             "x": 24,
             "y": 42
           },
-          "id": 3,
+          "id": 2,
           "macros": {},
           "name": "ABS label",
           "plugins": [],
@@ -283,7 +188,7 @@
             "x": 24,
             "y": 62
           },
-          "id": 4,
+          "id": 3,
           "macros": {},
           "name": "ABS value",
           "plugins": [],
@@ -378,7 +283,7 @@
             "x": 122,
             "y": 123
           },
-          "id": 5,
+          "id": 4,
           "macros": {},
           "name": "ABS accent",
           "plugins": [],
@@ -439,7 +344,7 @@
             "x": 270,
             "y": 42
           },
-          "id": 6,
+          "id": 5,
           "macros": {},
           "name": "BRAKE BIAS label",
           "plugins": [],
@@ -534,7 +439,7 @@
             "x": 270,
             "y": 62
           },
-          "id": 7,
+          "id": 6,
           "macros": {},
           "name": "BRAKE BIAS value",
           "plugins": [],
@@ -629,7 +534,7 @@
             "x": 368,
             "y": 123
           },
-          "id": 8,
+          "id": 7,
           "macros": {},
           "name": "BRAKE BIAS accent",
           "plugins": [],
@@ -690,7 +595,7 @@
             "x": 516,
             "y": 42
           },
-          "id": 9,
+          "id": 8,
           "macros": {},
           "name": "TRACTION CONTROL label",
           "plugins": [],
@@ -785,7 +690,7 @@
             "x": 516,
             "y": 62
           },
-          "id": 10,
+          "id": 9,
           "macros": {},
           "name": "TRACTION CONTROL value",
           "plugins": [],
@@ -880,7 +785,7 @@
             "x": 614,
             "y": 123
           },
-          "id": 11,
+          "id": 10,
           "macros": {},
           "name": "TRACTION CONTROL accent",
           "plugins": [],
@@ -941,7 +846,7 @@
             "x": 24,
             "y": 136
           },
-          "id": 12,
+          "id": 11,
           "macros": {},
           "name": "ENGINE MAP label",
           "plugins": [],
@@ -1036,7 +941,7 @@
             "x": 24,
             "y": 156
           },
-          "id": 13,
+          "id": 12,
           "macros": {},
           "name": "ENGINE MAP value",
           "plugins": [],
@@ -1131,7 +1036,7 @@
             "x": 122,
             "y": 217
           },
-          "id": 14,
+          "id": 13,
           "macros": {},
           "name": "ENGINE MAP accent",
           "plugins": [],
@@ -1192,7 +1097,7 @@
             "x": 270,
             "y": 136
           },
-          "id": 15,
+          "id": 14,
           "macros": {},
           "name": "ENGINE BRAKING label",
           "plugins": [],
@@ -1287,7 +1192,7 @@
             "x": 270,
             "y": 156
           },
-          "id": 16,
+          "id": 15,
           "macros": {},
           "name": "ENGINE BRAKING value",
           "plugins": [],
@@ -1382,7 +1287,7 @@
             "x": 368,
             "y": 217
           },
-          "id": 17,
+          "id": 16,
           "macros": {},
           "name": "ENGINE BRAKING accent",
           "plugins": [],
@@ -1443,7 +1348,7 @@
             "x": 516,
             "y": 136
           },
-          "id": 18,
+          "id": 17,
           "macros": {},
           "name": "TC 2 label",
           "plugins": [],
@@ -1538,7 +1443,7 @@
             "x": 516,
             "y": 156
           },
-          "id": 19,
+          "id": 18,
           "macros": {},
           "name": "TC 2 value",
           "plugins": [],
@@ -1633,7 +1538,7 @@
             "x": 614,
             "y": 217
           },
-          "id": 20,
+          "id": 19,
           "macros": {},
           "name": "TC 2 accent",
           "plugins": [],
@@ -1702,7 +1607,7 @@
             "x": 264,
             "y": 40
           },
-          "id": 21,
+          "id": 20,
           "macros": {},
           "name": "Vertical divider 1",
           "plugins": [],
@@ -1771,7 +1676,7 @@
             "x": 510,
             "y": 40
           },
-          "id": 22,
+          "id": 21,
           "macros": {},
           "name": "Vertical divider 2",
           "plugins": [],
@@ -1840,11 +1745,278 @@
             "x": 20,
             "y": 130
           },
-          "id": 23,
+          "id": 22,
           "macros": {},
           "name": "Horizontal divider",
           "plugins": [],
           "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "general.backgroundColor.color": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/SessionTypeName\").value",
+                "((v)=>v===undefined||v===null||String(v)===''?'#00000000':'#0D1117')(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "innerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#FFFFFF",
+                "type": "SOLID"
+              },
+              "size": 0
+            },
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 248,
+            "locked": false,
+            "visible": true,
+            "width": 780,
+            "x": 0,
+            "y": 0
+          },
+          "id": 23,
+          "macros": {},
+          "name": "Setting change backdrop",
+          "plugins": [],
+          "type": "Rectangle.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/SessionTypeName\").value",
+                "((v)=>v===undefined||v===null||String(v)===''?'':'SETTING CHANGED')(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 40,
+            "locked": false,
+            "visible": true,
+            "width": 740,
+            "x": 20,
+            "y": 42
+          },
+          "id": 24,
+          "macros": {},
+          "name": "Setting change heading",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#AEBBCA",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
+                "Telemetry.get(\"v1/gameData/SessionTypeName\").value",
+                "((v)=>v===undefined||v===null?'':String(v))(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 100,
+            "locked": false,
+            "visible": true,
+            "width": 740,
+            "x": 20,
+            "y": 82
+          },
+          "id": 25,
+          "macros": {},
+          "name": "Setting change notice",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 64,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
         }
       ],
       "effect": {
@@ -1908,14 +2080,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795660276,
+  "lastModified": 1795731466,
   "macros": {},
   "name": "MOZA Settings",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{9d425da9-a44c-4063-8094-9bcff2ddd998}",
+    "GUID": "{3ce1fbc1-4e81-4ba9-acf9-1dd14cb60470}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {

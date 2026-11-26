@@ -12,14 +12,14 @@ This package contains two MOZA Dash Studio `.mzdash` layouts, a telemetry bindin
 
 ## Set up setting-change notices
 
-The Race and Settings pages have a small notice area at the top center. When one of the six supported settings changes, the notice shows its label and value for five seconds. The active dashboard stays on screen.
+When one of the six supported settings changes, a full-screen dark overlay shows `SETTING CHANGED` and the setting name and value in large type for five seconds. The overlay then clears to reveal the same Race or Settings dashboard. It does not switch dashboard slots or require another running program.
 
 1. In AZOM's Dashboard & Channels view, open the channel mappings for **MOZA Race**.
 2. Map `v1/gameData/SessionTypeName` to the final `js:` line in `setting-change-notice.js` (leave out the comment lines).
 3. Repeat the same mapping for **MOZA Settings**.
 4. To change the shared duration, edit `durationMs` in the formula, then paste the same updated formula into both mappings.
 
-The formula seeds its first telemetry sample as a baseline, ignores negative/unavailable values for discrete settings while preserving zero, normalizes brake bias for display, and replaces the notice when another setting changes. It resets its baseline when the game, car, track, session, or restart state changes. If several settings change in one telemetry update, the last setting in the order listed in `bindings.csv` is shown.
+The formula seeds its first telemetry sample as a baseline, ignores negative/unavailable values for discrete settings while preserving zero, normalizes brake bias for display, and replaces the notice when another setting changes. Each new change restarts the five-second overlay. It resets its baseline when the game, car, track, session, or restart state changes. If several settings change in one telemetry update, the last setting in the order listed in `bindings.csv` is shown.
 
 AZOM 1.7.5 or newer is required for formula channel mappings. SimHub and AZOM evaluate the formula as part of their normal telemetry flow; no console or additional process needs to stay open.
 

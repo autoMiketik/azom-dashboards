@@ -58,9 +58,9 @@ Engine Braking and TC 2 are the two additional settings on this page. Keep front
 
 ## Setting-change notice
 
-Show one compact text notice in the header of both main dashboards. It displays the latest setting name and value for five seconds, then clears. A newer setting change replaces the current notice and restarts the same timer. The dashboard page stays selected; manual page navigation uses AZOM's normal wheel actions.
+Show the latest setting name and value in a full-screen overlay on both main dashboards. Use a dark backing and large centered type so the change is easy to read at a glance. Keep it visible for five seconds; a newer setting change replaces it and restarts the timer. The selected dashboard stays loaded underneath and is revealed when the overlay clears, so no dashboard switching process is needed.
 
-Use the string channel `v1/gameData/SessionTypeName` for the notice text. In AZOM's per-dashboard channel mappings, map it to the same formula from [`dashboards/setting-change-notice.js`](../dashboards/setting-change-notice.js) on Race and Settings. AZOM resolves formula mappings through SimHub's own formula engine, including JavaScript and per-formula state. This keeps the change detector and timer inside SimHub and removes the separate Python controller and Property Server dependency. [AZOM formula channel mapping](https://github.com/giantorth/AZOM/blob/v1.7.5/docs/ncalc-channel-mapping.md) · [SimHub JavaScript formula engine](https://github.com/SHWotever/SimHub/wiki/Javascript-Formula-Engine)
+Use the string channel `v1/gameData/SessionTypeName` for the overlay text and backing visibility. In AZOM's per-dashboard channel mappings, map it to the same formula from [`dashboards/setting-change-notice.js`](../dashboards/setting-change-notice.js) on Race and Settings. AZOM resolves formula mappings through SimHub's own formula engine, including JavaScript and per-formula state. This keeps the change detector and timer inside SimHub and removes the separate Python controller and Property Server dependency. [AZOM formula channel mapping](https://github.com/giantorth/AZOM/blob/v1.7.5/docs/ncalc-channel-mapping.md) · [SimHub JavaScript formula engine](https://github.com/SHWotever/SimHub/wiki/Javascript-Formula-Engine)
 
 | Setting | SimHub property | Display |
 | --- | --- | --- |
@@ -75,10 +75,10 @@ The formula seeds the first sample as a baseline, treats zero as valid, suppress
 
 ## Implementation and verification
 
-The package contains two dashboards: Race and Settings. Their formats and bindings are recorded in [the package overview](../README.md), [binding map](../dashboards/bindings.csv), and [installation guide](../dashboards/INSTALL.md). The inline notice uses AZOM formula mappings and the SimHub formula engine; it does not cycle dashboard slots.
+The package contains two dashboards: Race and Settings. Their formats and bindings are recorded in [the package overview](../README.md), [binding map](../dashboards/bindings.csv), and [installation guide](../dashboards/INSTALL.md). The full-screen overlay uses AZOM formula mappings and the SimHub formula engine; it does not cycle dashboard slots.
 
 1. Upload both pages on the SimHub host and verify their appearance in MOZA Dashboard Studio and on the wheel.
-2. Apply the same notice formula to the `SessionTypeName` channel mapping on both pages. In iRacing, confirm the first telemetry sample does not trigger a notice and changes from wheel controls, keyboard, and in-game menus do.
+2. Apply the same overlay formula to the `SessionTypeName` channel mapping on both pages. In iRacing, confirm the first telemetry sample does not trigger an overlay and changes from wheel controls, keyboard, and in-game menus do.
 3. Check repeated changes, mixed changes, zero, unavailable values, brake-bias sign and units, the five-second timeout, and resets on session/car changes. Label replay checks and hardware checks separately in the results.
 4. Read the wheel at normal driving distance in daylight and low light. Check the Race page's gear/delta and the Settings page's six values. Record car, wheel, firmware, SimHub/AZOM versions, observed values, and checks performed. See [dashboard verification](verification.md) for the current evidence and restart point.
 

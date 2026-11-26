@@ -1,6 +1,6 @@
 # MOZA CS Pro / KS Pro Dashboards
 
-Download the [dashboard package](dashboards/MOZA-CS-KS-Pro-Dashboards.zip) for two MOZA Dash Studio layouts: Race and Settings. Each page can show a temporary setting-change notice while it remains on screen. The notice runs through SimHub and AZOM channel formulas; using the package needs no Python install, helper app, or separate background process.
+Download the [dashboard package](dashboards/MOZA-CS-KS-Pro-Dashboards.zip) for two MOZA Dash Studio layouts: Race and Settings. A setting change temporarily takes over the full display with a large label and value, then reveals the same dashboard again after five seconds. The notice runs through SimHub and AZOM channel formulas; using the package needs no Python install, helper app, or separate background process.
 
 ## Files
 
