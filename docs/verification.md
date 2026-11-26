@@ -1,37 +1,33 @@
 # Dashboard verification
 
-## 2026-11-23 · Transport milestone
+## 2026-11-26 · SimHub-native notice design
 
-### Local documentation check
+### Documentation check
 
-- AZOM's [Properties & Actions reference](https://giant.orth.cc/guides/properties-and-actions/) describes `AZOM.DashboardName` as the dashboard currently on screen. Its published dashboard actions are `AZOM.DashboardNext` and `AZOM.DashboardPrev`; the list does not document direct selection by dashboard name or slot.
-- AZOM's [release notes](https://github.com/giantorth/AZOM/releases) identify `AZOM.DashboardName` as added in v1.7.2. The latest release shown during this check is v1.7.5 (2026-11-23). This does not establish which version is installed on the target SimHub host.
-- `references/reference-dashboard.zip` contains one `.mzdash`. Python's JSON parser accepted it; the layout metadata reports format version `1.1.1`, canvas width `780`, and height `248`. The archive does not establish how many dashboards the connected wheel supports.
-- This check ran on Linux. No SimHub/AZOM installation was found under `/home/mike`, and `wine` is unavailable. There is no connected target wheel in this environment.
+- AZOM v1.7.5 documents formula expressions for wheel channel mappings and reuses SimHub's own formula engine. Its v1.7.5 source evaluates formulas for both numeric and string channels, which allows a string channel to carry the notice text: [AZOM formula mapping](https://github.com/giantorth/AZOM/blob/v1.7.5/docs/ncalc-channel-mapping.md) · [string resolver in v1.7.5](https://github.com/giantorth/AZOM/blob/v1.7.5/Telemetry/SimHubPropertyResolver.cs).
+- SimHub's JavaScript formula engine supports state across formula evaluations through `root`: [SimHub JavaScript formula documentation](https://github.com/SHWotever/SimHub/wiki/Javascript-Formula-Engine).
+- AZOM's wheel file guide says layouts are rendered by wheel firmware and AZOM streams mapped SimHub telemetry to them: [AZOM wheel files and dashboard upload](https://giant.orth.cc/guides/wheel-files/).
+- The previous design used a Python process and SimHub Property Server to switch between eight dashboard slots. That controller has been removed. The replacement leaves the wheel on its current Race or Settings page and displays the latest setting change inline through SimHub/AZOM formulas.
+
+### Included behavior
+
+- Two dashboards: Race and Settings.
+- Both use the `v1/gameData/SessionTypeName` string channel for a top-center notice. Apply the same formula from `dashboards/setting-change-notice.js` to that channel on each dashboard in AZOM.
+- The formula seeds an initial baseline, treats zero as a valid discrete setting, ignores unavailable negative values for discrete settings, normalizes brake bias, and shows the latest detected setting for five seconds. Game, car, track, session, and restart changes reset its baseline.
+- No Python runtime, Property Server, console window, or separate helper process is required. Python remains only as a maintainer-side layout/ZIP generator in `tools/`.
 
 ### Not verified
 
-- Installed SimHub, AZOM, Dashboard Studio, wheel firmware, and ATSR-Hub EVO versions.
-- Reading the active dashboard name live, selecting a specific dashboard, restoring the captured main dashboard, wheel-side confirmation, or capacity for two main and six popup slots.
-- ATSR-Hub EVO lighting continuity during dashboard changes.
+- The formula has not been run against a connected SimHub/AZOM installation or the target CS Pro/KS Pro wheel.
+- Live iRacing property behavior, brake-bias sign/scale, string-channel mapping, same-frame multi-setting tie-break, five-second timing, and visible text rendering need a live check.
+- Dashboard Studio import/rendering, wheel-side readability, and ATSR-Hub EVO lighting continuity remain unverified.
 
 ### Restart point
 
-On the Windows/SimHub host with the CS Pro or KS Pro connected, record the installed versions. Upload and inspect the package layouts, then read `AZOM.DashboardName` for the active page and test selecting a popup and restoring the original main page. Verify wheel display and LED continuity and confirm whether eight slots can be enabled. If AZOM exposes only next/previous there too, decide and scope the controller integration or AZOM extension before enabling automatic popup switching. Keep replay checks and hardware checks labeled separately.
+On the target SimHub host, record SimHub and AZOM versions and confirm AZOM supports formula channel mappings. Upload the two package dashboards. Apply the same formula to `SessionTypeName` on Race and Settings, then verify baseline seeding, one change, repeated changes inside five seconds, expiry, and session/car reset. Check brake bias against the iRacing cockpit and separate replay observations from hardware observations. Record the car, wheel, firmware, plugin versions, and observed values.
 
-## 2026-11-23 · First-pass layout package
+## Superseded prototype history · 2026-11-23
 
-- Created Race, Settings, and six dedicated setting popup `.mzdash` layouts from the supplied MOZA sample schema. The editable files, upload-ready copies, generator, binding map, and installation notes are under `dashboards/` and `tools/`.
-- The layouts use AZOM channel URLs from the project's SimHub catalog. Fuel-per-lap and fuel-laps are intended to use the SimHub computed estimates and need manual mapping in AZOM as recorded in `dashboards/bindings.csv`.
-- The separate popup dashboards were built now so they can be imported and inspected, while transport support remains unresolved.
-- Format checks accepted all eight files as JSON, confirmed the sample's 1.1.1 format version and 780 × 248 canvas, compiled all 23 dashboard formatter expressions with Node.js, confirmed all eight exports are in the ZIP, and `git diff --check` passed.
-- Not verified: MOZA Dashboard Studio import/render, wheel upload, physical readability, live telemetry values/units, channel binding behavior, or the popup timer/controller. The package is ready for the user to import and inspect; these checks require their SimHub host and wheel.
+The first package contained Race, Settings, and six dedicated popup layouts. A Python controller using SimHub Property Server monitored settings and cycled AZOM's next/previous dashboard actions. The design was replaced on 2026-11-26 after the user rejected the extra runtime requirement. Its files and package instructions have been removed; the earlier hardware and telemetry checks were not performed.
 
-## 2026-11-23 · Popup controller implementation
-
-- Search found TrackThirtyTwo dashboards support setting-change popups and configurable popup duration ([dashboard feature page](https://www.trackthirtytwo.com/products/dashboards), [change log](https://www.trackthirtytwo.com/change-logs/simhub-dashboards)). That feature runs inside the TrackThirtyTwo dashboard/plugin system; the MOZA wheel requires AZOM-uploaded `.mzdash` pages, so it does not replace this controller.
-- SimHub Property Server documents TCP property subscriptions for generic SimHub properties ([plugin docs](https://github.com/pre-martin/SimHubPropertyServer/blob/main/doc/PropertyServer/PropertyServer.adoc)); SimHub documents `-triggeraction` on its running process ([CLI reference](https://github.com/SHWotever/SimHub/wiki/Command-line-interface)). AZOM publishes `AZOM.DashboardName`, `AZOM.DashboardNext`, and `AZOM.DashboardPrev` ([AZOM actions reference](https://giant.orth.cc/guides/properties-and-actions/)). The controller joins these interfaces without modifying AZOM.
-- Added `dashboards/controller/dashboard_controller.py`, `controller.json`, and a Windows launcher. The helper baselines settings, rounds to configured precision, ignores negative sentinel values for discrete settings while allowing negative brake bias, captures the main page, cycles to popups, restarts one configurable timer, restores the main page, cancels on manual main-page changes, and skips popup pages during normal navigation.
-- The gear cue color uses AZOM's documented `CarSettings_RPMShiftLight2` 0–1 progress property and a channel formula that excludes neutral, reverse, and top gear ([AZOM SimHub property reference](https://github.com/giantorth/AZOM/blob/main/docs/simhub.md#pluginmanager-properties)). The formula is listed in `dashboards/bindings.csv`.
-- The Windows SimHub host must have SimHub, AZOM, Python 3.10+, and SimHub Property Server enabled. Upload/enable the eight dashboards in their configured order. Direct name selection is still not documented, so page names/order and the cyclic next/previous behavior need verification against the actual wheel. No hardware exercise is recorded yet.
-- Format checks passed for both Python files (AST parse), controller JSON, the 18-row binding CSV, all eight editable/export pairs, and ZIP contents/integrity. No runtime tests were run, per the requested workflow.
+Web research also found setting-change popup features in the TrackThirtyTwo SimHub dashboard system. That system does not render on MOZA wheel firmware; AZOM converts dashboard layouts to `.mzdash` and streams telemetry into those layouts. It did not remove the need for a MOZA-compatible solution.

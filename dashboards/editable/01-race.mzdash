@@ -138,6 +138,101 @@
           "binding": {
             "text.text": {
               "methods": [
+                "Telemetry.get(\"v1/gameData/SessionTypeName\").value",
+                "((v)=>v===undefined||v===null?'':String(v))(_result)"
+              ],
+              "type": "METHOD_CHAINING"
+            }
+          },
+          "borderStyle": {
+            "allBorders": 0,
+            "allCornerRadius": 0,
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "bordersBottom": 0,
+            "bordersLeft": 0,
+            "bordersRight": 0,
+            "bordersTop": 0,
+            "radiusBottomLeft": 0,
+            "radiusBottomRight": 0,
+            "radiusTopLeft": 0,
+            "radiusTopRight": 0
+          },
+          "children": [],
+          "effect": {
+            "blinkDelay": 250,
+            "blinkEnabled": false,
+            "blurRadius": 0,
+            "gravitySensorEnabled": false,
+            "opacity": 100,
+            "outerShadow": {
+              "blur": 0,
+              "color": {
+                "color": "#00000000",
+                "type": "SOLID"
+              },
+              "depth": 0,
+              "direction": 0
+            },
+            "rotation": 0
+          },
+          "general": {
+            "backgroundColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 34,
+            "locked": false,
+            "visible": true,
+            "width": 280,
+            "x": 250,
+            "y": 4
+          },
+          "id": 3,
+          "macros": {},
+          "name": "Setting change notice",
+          "plugins": [],
+          "text": {
+            "fontColor": {
+              "color": "#F4F7FB",
+              "type": "SOLID"
+            },
+            "fontFamily": "Manrope3",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "horizontalAlignment": "AlignCenter",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "text": "",
+            "verticalAlignment": "AlignCenter",
+            "wrapText": false
+          },
+          "textEffect": {
+            "shadowBlur": 0,
+            "shadowColor": {
+              "color": "#00000000",
+              "type": "SOLID"
+            },
+            "shadowDepth": 0,
+            "shadowDirection": 0
+          },
+          "type": "Text.qml"
+        },
+        {
+          "actions": {},
+          "binding": {
+            "text.text": {
+              "methods": [
                 "Telemetry.get(\"v1/gameData/SessionTimeLeft\").value",
                 "((v)=>{const n=Number(v);if(!Number.isFinite(n)||n<0)return '--:--.---';const m=Math.floor(n/60),whole=Math.floor(n%60),ms=Math.floor((n%1)*1000);return String(m)+':'+String(whole).padStart(2,'0')+'.'+String(ms).padStart(3,'0');})(_result)"
               ],
@@ -196,7 +291,7 @@
             "x": 580,
             "y": 4
           },
-          "id": 3,
+          "id": 4,
           "macros": {},
           "name": "Session time",
           "plugins": [],
@@ -291,7 +386,7 @@
             "x": 258,
             "y": 55
           },
-          "id": 4,
+          "id": 5,
           "macros": {},
           "name": "Timing divider",
           "plugins": [],
@@ -360,7 +455,7 @@
             "x": 555,
             "y": 55
           },
-          "id": 5,
+          "id": 6,
           "macros": {},
           "name": "Driving divider",
           "plugins": [],
@@ -421,7 +516,7 @@
             "x": 20,
             "y": 58
           },
-          "id": 6,
+          "id": 7,
           "macros": {},
           "name": "CURRENT LAP label",
           "plugins": [],
@@ -516,7 +611,7 @@
             "x": 20,
             "y": 77
           },
-          "id": 7,
+          "id": 8,
           "macros": {},
           "name": "CURRENT LAP",
           "plugins": [],
@@ -603,7 +698,7 @@
             "x": 20,
             "y": 113
           },
-          "id": 8,
+          "id": 9,
           "macros": {},
           "name": "LAST LAP label",
           "plugins": [],
@@ -698,7 +793,7 @@
             "x": 20,
             "y": 132
           },
-          "id": 9,
+          "id": 10,
           "macros": {},
           "name": "LAST LAP",
           "plugins": [],
@@ -785,7 +880,7 @@
             "x": 20,
             "y": 168
           },
-          "id": 10,
+          "id": 11,
           "macros": {},
           "name": "BEST LAP label",
           "plugins": [],
@@ -880,7 +975,7 @@
             "x": 20,
             "y": 187
           },
-          "id": 11,
+          "id": 12,
           "macros": {},
           "name": "BEST LAP",
           "plugins": [],
@@ -975,7 +1070,7 @@
             "x": 280,
             "y": 55
           },
-          "id": 12,
+          "id": 13,
           "macros": {},
           "name": "Speed",
           "plugins": [],
@@ -1062,7 +1157,7 @@
             "x": 476,
             "y": 62
           },
-          "id": 13,
+          "id": 14,
           "macros": {},
           "name": "Speed unit",
           "plugins": [],
@@ -1164,7 +1259,7 @@
             "x": 300,
             "y": 97
           },
-          "id": 14,
+          "id": 15,
           "macros": {},
           "name": "Gear",
           "plugins": [],
@@ -1251,7 +1346,7 @@
             "x": 300,
             "y": 195
           },
-          "id": 15,
+          "id": 16,
           "macros": {},
           "name": "Delta label",
           "plugins": [],
@@ -1353,7 +1448,7 @@
             "x": 290,
             "y": 214
           },
-          "id": 16,
+          "id": 17,
           "macros": {},
           "name": "Live delta",
           "plugins": [],
@@ -1440,7 +1535,7 @@
             "x": 570,
             "y": 58
           },
-          "id": 17,
+          "id": 18,
           "macros": {},
           "name": "FUEL LEFT label",
           "plugins": [],
@@ -1535,7 +1630,7 @@
             "x": 570,
             "y": 77
           },
-          "id": 18,
+          "id": 19,
           "macros": {},
           "name": "FUEL LEFT",
           "plugins": [],
@@ -1622,7 +1717,7 @@
             "x": 570,
             "y": 113
           },
-          "id": 19,
+          "id": 20,
           "macros": {},
           "name": "FUEL PER LAP label",
           "plugins": [],
@@ -1717,7 +1812,7 @@
             "x": 570,
             "y": 132
           },
-          "id": 20,
+          "id": 21,
           "macros": {},
           "name": "FUEL PER LAP",
           "plugins": [],
@@ -1804,7 +1899,7 @@
             "x": 570,
             "y": 168
           },
-          "id": 21,
+          "id": 22,
           "macros": {},
           "name": "EST. FUEL LAPS label",
           "plugins": [],
@@ -1899,7 +1994,7 @@
             "x": 570,
             "y": 187
           },
-          "id": 22,
+          "id": 23,
           "macros": {},
           "name": "EST. FUEL LAPS",
           "plugins": [],
@@ -1993,14 +2088,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795424308,
+  "lastModified": 1795660276,
   "macros": {},
   "name": "MOZA Race",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{b0288507-0edd-48c1-ab70-6d32440c61ae}",
+    "GUID": "{2401a55f-6f40-431f-8f86-d20c587a29a5}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {

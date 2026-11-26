@@ -2,7 +2,7 @@
 
 Design draft for review. The prototype targets iRacing through SimHub and AZOM, with ATSR-Hub EVO handling the wheel lighting profile. The CS Pro and KS Pro are the target wheels. The supplied CS/KS Pro reference layout declares a **780 × 248 px** canvas. Use that for the mockups and confirm the dimensions, usable edges, and font in Dashboard Studio and on each wheel before export. [MOZA display overview](https://eu.mozaracing.com/es/blogs/news/moza-racing-ces-2026-porsche-mission-r-wheel) · [AZOM authoring and upload](https://giant.orth.cc/guides/wheel-files/)
 
-![Race, Settings, and popup design mockups](mockups/dashboard-preview.png)
+![Race and Settings dashboards with a setting-change notice](mockups/dashboard-preview.png)
 
 ## Visual rules
 
@@ -43,56 +43,43 @@ Shared paths below are relative to `DataCorePlugin.GameData.` unless written in 
 | Fuel remaining | `Fuel` | Verify litres with the installed SimHub configuration and actual AZOM channel. |
 | Fuel per lap and estimated laps | `DataCorePlugin.Computed.Fuel_LitersPerLap`, `DataCorePlugin.Computed.Fuel_RemainingLaps` | Bind SimHub's estimates to suitable AZOM channels. Confirm scale and precision on the wheel. Show a dash while consumption history is insufficient. |
 
-If the cockpit check fails, split Race into **Drive** and **Timing & Fuel**. Keep gear, speed, position, live delta, and estimated fuel laps on Drive. Put current, last, and best lap in a wide left column on Timing & Fuel, and fuel remaining, consumption per lap, and estimated laps in the right column. Keep session time in its header. Use the freed space to increase secondary values to 36 px or larger. Confirm a deliberate main-page switch and keep both pages eligible as popup return targets.
+If the cockpit check fails, split Race into **Drive** and **Timing & Fuel**. Keep gear, speed, position, live delta, and estimated fuel laps on Drive. Put current, last, and best lap in a wide left column on Timing & Fuel, and fuel remaining, consumption per lap, and estimated laps in the right column. Keep session time in its header. Use the freed space to increase secondary values to 36 px or larger. Confirm a deliberate main-page switch; the setting-change notice stays with whichever page is active.
 
 ## Main 2 · Settings
 
-Use a three-column, two-row grid. Column centers are x 144, 390, and 636. Row labels sit at y 39 and 147 in 18 px. Values sit at y 99 and 207 in 46–52 px. Place brake bias top center for the easiest glance. Keep the charcoal background and neutral text across all six tiles. Center a 44 × 3 px accent line under each value at y 111 or 219. Each line uses the accent color of its corresponding popup. Keep tile positions and cues stable when a setting is unavailable.
+Use a three-column, two-row grid. Column centers are x 144, 390, and 636. Labels sit at y 42 and 136 in 16 px; values use 44 px. Place brake bias top center for the easiest glance. Keep the charcoal background and neutral text across all six tiles. Center a 44 × 3 px accent line below each value. Each line uses that setting's accent color. Keep tile positions and cues stable when a setting is unavailable. Leave a narrow header area for the setting-change notice.
 
 | Row | Left | Middle | Right |
 | --- | --- | --- | --- |
 | Top | ABS | Brake Bias | Traction Control |
 | Bottom | Engine Map | Engine Braking | TC 2 |
 
-Engine Braking and TC 2 are proposed for the two extra slots. Keep front/rear anti-roll bar and fuel mixture as candidates for a later settings page or a car-specific binding once their meaning is confirmed. Show `—` for unavailable values and `OFF` only when the car confirms an off state. iRacing can expose different in-car adjustments by car. [iRacing in-car adjustments](https://support.iracing.com/support/solutions/articles/31000167257-black-box-screen-information-and-controls) · [Project SDK catalog](../telemetry/iracing.csv)
+Engine Braking and TC 2 are the two additional settings on this page. Keep front/rear anti-roll bar and fuel mixture as candidates for a later settings page or a car-specific binding once their meaning is confirmed. Show `—` for unavailable values and `OFF` only when the car confirms an off state. iRacing can expose different in-car adjustments by car. [iRacing in-car adjustments](https://support.iracing.com/support/solutions/articles/31000167257-black-box-screen-information-and-controls) · [Project SDK catalog](../telemetry/iracing.csv)
 
-## Settings popups
+## Setting-change notice
 
-Each supported setting has its own uploaded dashboard slot, with a shared layout. Fill the popup with the corresponding dark tint and draw a 4 px rule in the matching accent color along the top edge. Use a 24 px centered neutral label at y 59 and a bold near-white value centered at x 390 with baseline y 172. Start at 92 px for values and reduce to 72 px for wider strings. Use a 30 px percent sign for bias and fit the longest expected state within the central 560 px. No countdown is shown. Settings and popup dashboards share the same formatter for each value. The label identifies the setting even when the tints are hard to distinguish.
+Show one compact text notice in the header of both main dashboards. It displays the latest setting name and value for five seconds, then clears. A newer setting change replaces the current notice and restarts the same timer. The dashboard page stays selected; manual page navigation uses AZOM's normal wheel actions.
 
-| Setting | Popup background | Shared accent line |
+Use the string channel `v1/gameData/SessionTypeName` for the notice text. In AZOM's per-dashboard channel mappings, map it to the same formula from [`dashboards/setting-change-notice.js`](../dashboards/setting-change-notice.js) on Race and Settings. AZOM resolves formula mappings through SimHub's own formula engine, including JavaScript and per-formula state. This keeps the change detector and timer inside SimHub and removes the separate Python controller and Property Server dependency. [AZOM formula channel mapping](https://github.com/giantorth/AZOM/blob/v1.7.5/docs/ncalc-channel-mapping.md) · [SimHub JavaScript formula engine](https://github.com/SHWotever/SimHub/wiki/Javascript-Formula-Engine)
+
+| Setting | SimHub property | Display |
 | --- | --- | --- |
-| ABS | Dark teal `#10292B` | `#67C8C1` |
-| Brake Bias | Dark amber `#322615` | `#E8B760` |
-| Traction Control | Dark violet `#29213A` | `#B5A1EC` |
-| Engine Map | Dark blue `#172740` | `#7DA8EA` |
-| Engine Braking | Dark rose `#342129` | `#E59BAA` |
-| TC 2 | Dark olive `#272D18` | `#B6C77B` |
-
-| Popup | Trigger candidate in shared SimHub data | Display and iRacing fallback candidate |
-| --- | --- | --- |
-| Brake Bias | `BrakeBias` changes by one displayed step | Front bias percentage such as `56.2%` once validated. Compare `dcBrakeBias` against the cockpit. Some values may require a car-specific interpretation. |
 | ABS | `ABSLevel` changes | Confirmed setting or `OFF`. Compare `dcABS` if needed. ABS engagement is a separate signal. |
+| Brake Bias | `BrakeBias` changes by one displayed step | Front bias percentage such as `56.2%` once validated. Compare `dcBrakeBias` against the cockpit. Some values may require a car-specific interpretation. |
 | Traction Control | `TCLevel` changes | Confirmed setting or `OFF`. Compare `dcTractionControl` if needed. TC engagement is a separate signal. |
 | Engine Map | `ECUMap` changes | Confirmed map number or short label. Check `dcEnginePower` only if it tracks the same cockpit control for the car. |
 | Engine Braking | `EngineBrake` changes | Confirmed step or short label. Compare `dcEngineBraking` if needed. |
 | TC 2 | `TC_B` changes | Confirmed second TC adjustment. Compare `dcTractionControl2` if needed. |
 
-Read actual setting telemetry irrespective of whether the driver used a wheel control, keyboard, or an in-game menu. Keep one change detector per enabled setting. Seed from the first valid sample, normalize to the real setting step to ignore float noise, and suppress triggers while input is unavailable. Re-establish baselines on session, car, or source changes. Distinguish authoritative zero from unavailable data. When changes arrive in one sample, keep the newest change with a stable tie-break in the popup table order.
+The formula seeds the first sample as a baseline, treats zero as valid, suppresses unavailable negative discrete values, normalizes brake bias to its displayed precision, and refreshes the notice on the latest changed setting. It resets its baseline on game, car, track, session, or restart changes. If several values change in one update, the final setting in the table order wins. The shared duration is **5.0 s** in `setting-change-notice.js`.
 
-Use one editable duration setting in seconds for all popups, default **5.0 s**. Capture the current main slot once per popup sequence. Repeated adjustments update the live value and restart the deadline. A different setting selects its popup and restarts the same deadline. At expiry, return to the exact saved main page. A deliberate manual main selection during a popup cancels the sequence and takes precedence. Reset the sequence on disconnection or session change and re-establish the active main page when the wheel is ready. Keep popup slots out of normal main-page navigation.
+## Implementation and verification
 
-## Implementation order and evidence
+The package contains two dashboards: Race and Settings. Their formats and bindings are recorded in [the package overview](../README.md), [binding map](../dashboards/bindings.csv), and [installation guide](../dashboards/INSTALL.md). The inline notice uses AZOM formula mappings and the SimHub formula engine; it does not cycle dashboard slots.
 
-### Milestone 1 · Transport verification
-
-Local documentation confirms that AZOM exposes `AZOM.DashboardName` and bindable `AZOM.DashboardNext` / `AZOM.DashboardPrev` actions, but its published action list does not include direct selection of a named dashboard. The machine used for this check is Linux and has no local SimHub or AZOM installation, so installed versions, exact selection, wheel-side confirmation, eight-slot capacity, and ATSR-Hub EVO continuity remain unverified. See [transport verification](verification.md). Resume this milestone on the SimHub and wheel host before implementing popup switching; if exact selection is unavailable, scope a controller integration or AZOM change first.
-
-Race, Settings, and six dedicated popup layouts are available in [the dashboard package](../README.md), with exports, editable files, and a ZIP bundle. Their telemetry paths and formats are recorded in `dashboards/bindings.csv`. A local SimHub bridge now detects setting changes, selects the corresponding popup by cycling AZOM dashboard actions, restarts the shared timer, and returns to the captured main page. See the [installation guide](../dashboards/INSTALL.md) and [dashboard verification](verification.md).
-
-1. **Confirm the transport.** The controller uses `AZOM.DashboardName` and the published next/previous actions through SimHub's command line. On the installed host, confirm page names, wheel slot order, wheel-side confirmation, and that two main plus six popup slots fit. Confirm ATSR-Hub EVO remains active through page changes. [AZOM releases](https://github.com/giantorth/AZOM/releases) · [AZOM action reference](https://giant.orth.cc/guides/properties-and-actions/) · [SimHub command line](https://github.com/SHWotever/SimHub/wiki/Command-line-interface)
-2. **Prove Race → Brake Bias → Race on hardware.** Use iRacing and a car with adjustable bias. Bind the live value, adjust up and down, then try two changes three seconds apart. With the default timeout, the main returns eight seconds after the first change. Verify with real telemetry plus replay if the relevant values survive recording.
-3. **Build both main layouts and remaining popups.** Fill the Race and Settings bindings, keep formats consistent, and enable each popup only where its setting source is verified. Check neutral and reverse, long lap times, unavailable values, sign and units, 100% bias formatting, and longer setting labels. Compare fuel after enough laps for SimHub to estimate consumption.
-4. **Review readability and switching.** Read the wheel at the normal driving distance in daylight and low light. Check that the gear and delta are legible at a glance and every requested field can be read without leaning in. Check whether the popup tints are recognizable and the matching Settings lines are visible on the wheel. Try mixed setting changes, manual page selection, session resets, and a second main page as the saved return target. Use the split layout if needed. Record car, wheel, firmware, plugin versions, and what was verified. Keep editable layouts, exports, bindings, and install instructions together.
+1. Upload both pages on the SimHub host and verify their appearance in MOZA Dashboard Studio and on the wheel.
+2. Apply the same notice formula to the `SessionTypeName` channel mapping on both pages. In iRacing, confirm the first telemetry sample does not trigger a notice and changes from wheel controls, keyboard, and in-game menus do.
+3. Check repeated changes, mixed changes, zero, unavailable values, brake-bias sign and units, the five-second timeout, and resets on session/car changes. Label replay checks and hardware checks separately in the results.
+4. Read the wheel at normal driving distance in daylight and low light. Check the Race page's gear/delta and the Settings page's six values. Record car, wheel, firmware, SimHub/AZOM versions, observed values, and checks performed. See [dashboard verification](verification.md) for the current evidence and restart point.
 
 For design review, the two decisions are whether the dense Race page reads comfortably at wheel size, and whether Engine Braking and TC 2 are the best two extra settings for the cars you drive.

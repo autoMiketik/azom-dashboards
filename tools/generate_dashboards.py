@@ -21,12 +21,12 @@ MUTED = "#AEBBCA"
 RULE = "#34404D"
 
 SETTINGS = [
-    ("abs", "ABS", "ABSLevel", "#10292B", "#67C8C1", "—"),
-    ("brake-bias", "BRAKE BIAS", "BrakeBias", "#322615", "#E8B760", "—"),
-    ("traction-control", "TRACTION CONTROL", "TCLevel", "#29213A", "#B5A1EC", "—"),
-    ("engine-map", "ENGINE MAP", "ECUMap", "#172740", "#7DA8EA", "—"),
-    ("engine-braking", "ENGINE BRAKING", "EngineBrake", "#342129", "#E59BAA", "—"),
-    ("tc-2", "TC 2", "TC_B", "#272D18", "#B6C77B", "—"),
+    ("ABS", "ABSLevel", "#67C8C1"),
+    ("BRAKE BIAS", "BrakeBias", "#E8B760"),
+    ("TRACTION CONTROL", "TCLevel", "#B5A1EC"),
+    ("ENGINE MAP", "ECUMap", "#7DA8EA"),
+    ("ENGINE BRAKING", "EngineBrake", "#E59BAA"),
+    ("TC 2", "TC_B", "#B6C77B"),
 ]
 
 
@@ -133,6 +133,9 @@ def race() -> dict:
     e = [
         text("Position", "P—", 20, 4, 100, 34, 25, align="AlignLeft",
              url="v1/gameData/CurrentPos", formatter="((v)=>{const n=Number(v);return Number.isFinite(n)&&n>=0?'P'+n:'P—';})(_result)"),
+        text("Setting change notice", "", 250, 4, 280, 34, 20,
+             url="v1/gameData/SessionTypeName",
+             formatter="((v)=>v===undefined||v===null?'':String(v))(_result)"),
         text("Session time", "--:--", 580, 4, 180, 34, 25, align="AlignRight",
              url="v1/gameData/SessionTimeLeft", formatter=js_time()),
         rect("Timing divider", 258, 55, 1, 166, RULE),
@@ -192,47 +195,33 @@ def race() -> dict:
 def settings() -> dict:
     e = []
     xs = [24, 270, 516]
-    ys = [20, 134]
-    for index, (slug, label, prop, _bg, accent, _fallback) in enumerate(SETTINGS):
+    ys = [42, 136]
+    e.append(text("Setting change notice", "", 250, 4, 280, 30, 20,
+                  url="v1/gameData/SessionTypeName",
+                  formatter="((v)=>v===undefined||v===null?'':String(v))(_result)"))
+    for index, (label, prop, accent) in enumerate(SETTINGS):
         row, col = divmod(index, 3)
         x, y = xs[col], ys[row]
-        is_bias = slug == "brake-bias"
+        is_bias = prop == "BrakeBias"
         invalid = "!Number.isFinite(n)" if is_bias else "!Number.isFinite(n)||n<0"
         value = "Math.abs(n)<=1?n*100:n" if is_bias else "n"
         decimals = 1 if is_bias else 0
         suffix = "+'%'" if is_bias else ""
-        e.append(text(label + " label", label, x, y, 240, 30, 18, MUTED))
-        e.append(text(label + " value", "—", x, y + 28, 240, 66, 48,
+        e.append(text(label + " label", label, x, y, 240, 24, 16, MUTED))
+        e.append(text(label + " value", "—", x, y + 20, 240, 58, 44,
                       url="v1/gameData/" + prop,
                       formatter=f"((v)=>{{if(v===undefined||v===null)return '—';const n=Number(v);if({invalid})return '—';return ({value}).toFixed({decimals}){suffix};}})(_result)"))
-        e.append(rect(label + " accent", x + 98, y + 92, 44, 3, accent))
-    e.extend([rect("Vertical divider 1", 264, 12, 1, 222, RULE),
-              rect("Vertical divider 2", 510, 12, 1, 222, RULE),
-              rect("Horizontal divider", 20, 125, 740, 1, RULE)])
+        e.append(rect(label + " accent", x + 98, y + 81, 44, 3, accent))
+    e.extend([rect("Vertical divider 1", 264, 40, 1, 190, RULE),
+              rect("Vertical divider 2", 510, 40, 1, 190, RULE),
+              rect("Horizontal divider", 20, 130, 740, 1, RULE)])
     return make_dashboard("MOZA Settings", e)
-
-
-def popup(record: tuple) -> dict:
-    slug, label, prop, background, accent, _fallback = record
-    is_bias = slug == "brake-bias"
-    invalid = "!Number.isFinite(n)" if is_bias else "!Number.isFinite(n)||n<0"
-    value = "Math.abs(n)<=1?n*100:n" if is_bias else "n"
-    decimals = 1 if is_bias else 0
-    suffix = "+'%'" if is_bias else ""
-    e = [rect("Popup accent", 0, 0, WIDTH, 4, accent),
-         text("Popup setting", label, 60, 44, 660, 34, 24, MUTED),
-         text("Popup value", "—", 80, 93, 620, 118, 92,
-              url="v1/gameData/" + prop,
-              formatter=f"((v)=>{{if(v===undefined||v===null)return '—';const n=Number(v);if({invalid})return '—';return ({value}).toFixed({decimals}){suffix};}})(_result)")]
-    return make_dashboard("MOZA Popup " + label.title(), e, background)
 
 
 def main() -> None:
     EDITABLE.mkdir(parents=True, exist_ok=True)
     EXPORTS.mkdir(parents=True, exist_ok=True)
     docs = [("01-race.mzdash", race()), ("02-settings.mzdash", settings())]
-    docs += [(f"{index + 3:02d}-popup-{record[0]}.mzdash", popup(record))
-             for index, record in enumerate(SETTINGS)]
     for filename, content in docs:
         data = json.dumps(content, ensure_ascii=False, indent=2) + "\n"
         (EDITABLE / filename).write_text(data, encoding="utf-8")
@@ -243,12 +232,8 @@ def main() -> None:
             archive.write(EXPORTS / filename, arcname=filename)
         archive.write(ROOT / "dashboards/INSTALL.md", arcname="README.md")
         archive.write(ROOT / "dashboards/bindings.csv", arcname="bindings.csv")
-        archive.write(ROOT / "dashboards/controller/controller.json",
-                      arcname="controller/controller.json")
-        archive.write(ROOT / "dashboards/controller/dashboard_controller.py",
-                      arcname="controller/dashboard_controller.py")
-        archive.write(ROOT / "dashboards/controller/run_controller.bat",
-                      arcname="controller/run_controller.bat")
+        archive.write(ROOT / "dashboards/setting-change-notice.js",
+                      arcname="setting-change-notice.js")
         archive.write(ROOT / "docs/mockups/dashboard-preview.png",
                       arcname="dashboard-preview.png")
     print(f"Generated {len(docs)} dashboards in {EDITABLE} and {EXPORTS}")

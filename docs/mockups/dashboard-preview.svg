@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="640" viewBox="0 0 820 640">
+  <rect width="820" height="640" fill="#232a34"/>
+  <g font-family="Noto Sans, DejaVu Sans, sans-serif" font-weight="700">
+    <text x="20" y="26" fill="#F4F7FB" font-size="18">RACE</text>
+    <rect x="20" y="40" width="780" height="248" fill="#0D1117"/>
+    <text x="40" y="68" fill="#F4F7FB" font-size="25">P7</text>
+    <text x="410" y="66" fill="#F4F7FB" font-size="20" text-anchor="middle">BRAKE BIAS 56.2%</text>
+    <text x="640" y="67" fill="#AEBBCA" font-size="14" text-anchor="end">TIME LEFT</text>
+    <text x="780" y="68" fill="#F4F7FB" font-size="25" text-anchor="end">24:36</text>
+    <path d="M278 95V261 M575 95V261" stroke="#34404D" stroke-width="1"/>
+
+    <g fill="#AEBBCA" font-size="15">
+      <text x="40" y="99">CURRENT LAP</text>
+      <text x="40" y="154">LAST LAP</text>
+      <text x="40" y="209">BEST LAP</text>
+      <text x="780" y="99" text-anchor="end">FUEL LEFT</text>
+      <text x="780" y="154" text-anchor="end">FUEL PER LAP</text>
+      <text x="780" y="209" text-anchor="end">EST. FUEL LAPS</text>
+    </g>
+    <g fill="#F4F7FB">
+      <text x="40" y="139" font-size="30">1:24.682</text>
+      <text x="40" y="194" font-size="28">1:39.018</text>
+      <text x="40" y="249" font-size="28">1:38.504</text>
+      <text x="780" y="139" font-size="30" text-anchor="end">36.4<tspan fill="#AEBBCA" font-size="16"> L</tspan></text>
+      <text x="780" y="194" font-size="28" text-anchor="end">2.83<tspan fill="#AEBBCA" font-size="16"> L/lap</tspan></text>
+      <text x="780" y="249" font-size="28" text-anchor="end">12.9<tspan fill="#AEBBCA" font-size="16"> laps</tspan></text>
+    </g>
+    <text x="410" y="103" fill="#F4F7FB" font-size="36" text-anchor="middle">214<tspan fill="#AEBBCA" font-size="16"> km/h</tspan></text>
+    <text x="410" y="191" fill="#F4F7FB" font-size="94" text-anchor="middle">5</text>
+    <text x="410" y="239" fill="#AEBBCA" font-size="15" text-anchor="middle">Δ VS SESSION BEST</text>
+    <text x="410" y="270" fill="#71E6AD" font-size="30" text-anchor="middle">−0.28 s</text>
+
+    <text x="20" y="326" fill="#F4F7FB" font-size="18">SETTINGS</text>
+    <rect x="20" y="340" width="780" height="248" fill="#0D1117"/>
+    <text x="410" y="367" fill="#F4F7FB" font-size="20" text-anchor="middle">ABS 4</text>
+    <path d="M284 380V570 M530 380V570 M40 480H780" stroke="#34404D" stroke-width="1"/>
+    <g fill="#AEBBCA" font-size="16" text-anchor="middle">
+      <text x="164" y="414">ABS</text>
+      <text x="410" y="414">BRAKE BIAS</text>
+      <text x="656" y="414">TRACTION CONTROL</text>
+      <text x="164" y="508">ENGINE MAP</text>
+      <text x="410" y="508">ENGINE BRAKING</text>
+      <text x="656" y="508">TC 2</text>
+    </g>
+    <g fill="#F4F7FB" font-size="44" text-anchor="middle">
+      <text x="164" y="465">4</text>
+      <text x="410" y="465">56.2%</text>
+      <text x="656" y="465">3</text>
+      <text x="164" y="558">2</text>
+      <text x="410" y="558">5</text>
+      <text x="656" y="558">—</text>
+    </g>
+    <path d="M142 473H186 M388 473H432 M634 473H678" stroke-width="3"/>
+    <path d="M142 566H186 M388 566H432 M634 566H678" stroke-width="3"/>
+    <path d="M142 473H186 M142 566H186" stroke="#67C8C1"/>
+    <path d="M388 473H432 M388 566H432" stroke="#E8B760"/>
+    <path d="M634 473H678" stroke="#B5A1EC"/>
+    <path d="M634 566H678" stroke="#B6C77B"/>
+  </g>
+</svg>

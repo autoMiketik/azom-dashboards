@@ -1,26 +1,28 @@
 # Installation guide
 
-This package contains eight MOZA Dash Studio `.mzdash` layouts, a telemetry binding map, an optional popup controller, and a design preview. Review each dashboard in MOZA Dashboard Studio before uploading it to the wheel.
+This package contains two MOZA Dash Studio `.mzdash` layouts, a telemetry binding map, the SimHub formula for setting-change notices, and a design preview. It uses SimHub with the AZOM plugin. You do not need Python, SimHub Property Server, or a separate helper program to use it.
 
 ## Upload the dashboards
 
 1. Extract this ZIP.
 2. In SimHub, open AZOM, select the connected MOZA wheel under Devices, and open Files.
-3. Choose each `.mzdash` file from the extracted folder and upload it. Enable the dashboards you want on the wheel.
+3. Upload `01-race.mzdash` and `02-settings.mzdash`. Enable both layouts.
 4. Open the layouts in MOZA Dashboard Studio to inspect or edit them. `dashboard-preview.png` shows the design overview; use Studio's device preview to inspect the wheel rendering.
-5. In AZOM's Dashboard & Channels view, inspect every bound channel. Map `v1/gameData/FuelConsumeLap` to `DataCorePlugin.Computed.Fuel_LitersPerLap`, `v1/gameData/FuelLaps` to `DataCorePlugin.Computed.Fuel_RemainingLaps`, and `v1/gameData/CarSettings_RPMShiftLight2` to the formula in `bindings.csv`. The binding map lists the channels, formats, and current verification state.
+5. In AZOM's Dashboard & Channels view, inspect each bound channel. Map `v1/gameData/FuelConsumeLap` to `DataCorePlugin.Computed.Fuel_LitersPerLap`, `v1/gameData/FuelLaps` to `DataCorePlugin.Computed.Fuel_RemainingLaps`, and `v1/gameData/CarSettings_RPMShiftLight2` to the formula in `bindings.csv`.
 
-See AZOM's [wheel files guide](https://giant.orth.cc/guides/wheel-files/) for local `.mzdash` upload and Dashboard Studio editing. Exact signal availability, units, sign, and conversion depend on the installed versions and active car. Confirm them against live telemetry before relying on a value.
+## Set up setting-change notices
 
-## Optional popup controller
+The Race and Settings pages have a small notice area at the top center. When one of the six supported settings changes, the notice shows its label and value for five seconds. The active dashboard stays on screen.
 
-The controller watches SimHub properties and invokes AZOM's dashboard actions when a setting changes. It requires Windows, SimHub 9.12 or newer, AZOM, Python 3.10+, and the third-party [SimHub Property Server](https://github.com/pre-martin/SimHubPropertyServer) plugin. Install and enable the plugin in SimHub; its default TCP port is 18082.
+1. In AZOM's Dashboard & Channels view, open the channel mappings for **MOZA Race**.
+2. Map `v1/gameData/SessionTypeName` to the final `js:` line in `setting-change-notice.js` (leave out the comment lines).
+3. Repeat the same mapping for **MOZA Settings**.
+4. To change the shared duration, edit `durationMs` in the formula, then paste the same updated formula into both mappings.
 
-1. Upload the dashboards and enable all eight in the order in `controller/controller.json`. The wheel must support the configured slots; confirm this on the target device.
-2. Check that `AZOM.DashboardName` reports the uploaded titles. If titles or wheel order differ, edit `dashboard_order` in `controller/controller.json` to match.
-3. Set `simhub_exe` in `controller/controller.json` if SimHub is installed elsewhere.
-4. Run `controller/run_controller.bat` on the SimHub host and keep the console open while driving.
+The formula seeds its first telemetry sample as a baseline, ignores negative/unavailable values for discrete settings while preserving zero, normalizes brake bias for display, and replaces the notice when another setting changes. It resets its baseline when the game, car, track, session, or restart state changes. If several settings change in one telemetry update, the last setting in the order listed in `bindings.csv` is shown.
 
-The controller uses one five-second popup timer, seeds each setting from its first valid sample, and returns to the main dashboard captured when the popup sequence began. AZOM's published interface exposes next/previous dashboard actions and the active dashboard name, but does not document direct named-dashboard selection. The controller therefore follows the configured slot order. Verify page order, popup selection, restoration, telemetry, and wheel behavior on the actual setup before relying on automatic switching.
+AZOM 1.7.5 or newer is required for formula channel mappings. SimHub and AZOM evaluate the formula as part of their normal telemetry flow; no console or additional process needs to stay open.
 
-The layouts are first-pass designs based on a supplied 780 × 248 sample. Dashboard Studio import/rendering, live values, physical readability, page capacity, and controller operation have not yet been confirmed on a target wheel.
+See AZOM's [wheel files guide](https://giant.orth.cc/guides/wheel-files/) for `.mzdash` upload and Dashboard Studio editing. Exact signal availability, units, sign, and conversion depend on installed versions and the active car. Confirm them against live telemetry before relying on a value.
+
+The layouts are first-pass designs based on a supplied 780 × 248 sample. Dashboard Studio import/rendering, live values, physical readability, and notice timing have not yet been confirmed on a target wheel.
