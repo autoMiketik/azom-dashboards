@@ -1937,7 +1937,7 @@
             "general.backgroundColor.color": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/SessionTypeName\").value",
-                "((v)=>v===undefined||v===null||String(v)===''?'#00000000':'#0D1117')(_result)"
+                "((v)=>{if(v===undefined||v===null||String(v)==='')return '#00000000';const p=String(v).split('|');return p.length===3?p[2]:'#00000000';})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -2014,7 +2014,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/SessionTypeName\").value",
-                "((v)=>v===undefined||v===null||String(v)===''?'':'SETTING CHANGED')(_result)"
+                "((v)=>{if(v===undefined||v===null)return '';const p=String(v).split('|');return p.length===3?p[0]:'';})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -2064,12 +2064,12 @@
             },
             "borderRadius": 0,
             "borderWidth": 0,
-            "height": 40,
+            "height": 50,
             "locked": false,
             "visible": true,
             "width": 740,
             "x": 20,
-            "y": 42
+            "y": 18
           },
           "id": 24,
           "macros": {},
@@ -2077,11 +2077,11 @@
           "plugins": [],
           "text": {
             "fontColor": {
-              "color": "#AEBBCA",
+              "color": "#0D1117",
               "type": "SOLID"
             },
             "fontFamily": "Manrope3",
-            "fontSize": 24,
+            "fontSize": 32,
             "fontWeight": 700,
             "horizontalAlignment": "AlignCenter",
             "paddingBottom": 0,
@@ -2109,7 +2109,7 @@
             "text.text": {
               "methods": [
                 "Telemetry.get(\"v1/gameData/SessionTypeName\").value",
-                "((v)=>v===undefined||v===null?'':String(v))(_result)"
+                "((v)=>{if(v===undefined||v===null)return '';const p=String(v).split('|');return p.length===3?p[1]:'';})(_result)"
               ],
               "type": "METHOD_CHAINING"
             }
@@ -2159,12 +2159,12 @@
             },
             "borderRadius": 0,
             "borderWidth": 0,
-            "height": 100,
+            "height": 138,
             "locked": false,
             "visible": true,
             "width": 740,
             "x": 20,
-            "y": 82
+            "y": 68
           },
           "id": 25,
           "macros": {},
@@ -2172,11 +2172,11 @@
           "plugins": [],
           "text": {
             "fontColor": {
-              "color": "#F4F7FB",
+              "color": "#0D1117",
               "type": "SOLID"
             },
             "fontFamily": "Manrope3",
-            "fontSize": 64,
+            "fontSize": 112,
             "fontWeight": 700,
             "horizontalAlignment": "AlignCenter",
             "paddingBottom": 0,
@@ -2260,14 +2260,14 @@
   },
   "id": 0,
   "imageResources": [],
-  "lastModified": 1795731466,
+  "lastModified": 1795739070,
   "macros": {},
   "name": "MOZA Race",
   "plugins": [],
   "type": "Window.qml",
   "version": "1.1.1",
   "window": {
-    "GUID": "{319c2c12-22da-45e0-9674-c5f9715c0e09}",
+    "GUID": "{d8345b14-a388-4938-af37-cb73ee65c541}",
     "defaultScreenId": 0,
     "idealDeviceInfos": [
       {

@@ -2,9 +2,9 @@
   <rect width="820" height="640" fill="#232a34"/>
   <g font-family="Noto Sans, DejaVu Sans, sans-serif" font-weight="700">
     <text x="20" y="26" fill="#F4F7FB" font-size="18">RACE · SETTING CHANGE VIEW</text>
-    <rect x="20" y="40" width="780" height="248" fill="#0D1117"/>
-    <text x="410" y="119" fill="#AEBBCA" font-size="24" text-anchor="middle">SETTING CHANGED</text>
-    <text x="410" y="190" fill="#F4F7FB" font-size="64" text-anchor="middle">Brake Bias 56.2%</text>
+    <rect x="20" y="40" width="780" height="248" fill="#E8B760"/>
+    <text x="410" y="98" fill="#0D1117" font-size="32" text-anchor="middle">Brake Bias</text>
+    <text x="410" y="209" fill="#0D1117" font-size="112" text-anchor="middle">56.2%</text>
 
     <text x="20" y="326" fill="#F4F7FB" font-size="18">SETTINGS PAGE · NORMAL VIEW</text>
     <rect x="20" y="340" width="780" height="248" fill="#0D1117"/>

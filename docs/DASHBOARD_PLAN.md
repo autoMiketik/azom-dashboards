@@ -47,7 +47,7 @@ If the cockpit check fails, split Race into **Drive** and **Timing & Fuel**. Kee
 
 ## Main 2 · Settings
 
-Use a three-column, two-row grid. Column centers are x 144, 390, and 636. Labels sit at y 42 and 136 in 16 px; values use 44 px. Place brake bias top center for the easiest glance. Keep the charcoal background and neutral text across all six tiles. Center a 44 × 3 px accent line below each value. Each line uses that setting's accent color. Keep tile positions and cues stable when a setting is unavailable. Leave a narrow header area for the setting-change notice.
+Use a three-column, two-row grid. Column centers are x 144, 390, and 636. Labels sit at y 42 and 136 in 16 px; values use 44 px. Place brake bias top center for the easiest glance. Keep the charcoal background and neutral text across all six tiles. Center a 44 × 3 px accent line below each value. Each line uses that setting's accent color. Keep tile positions and cues stable when a setting is unavailable.
 
 | Row | Left | Middle | Right |
 | --- | --- | --- | --- |
@@ -58,9 +58,9 @@ Engine Braking and TC 2 are the two additional settings on this page. Keep front
 
 ## Setting-change notice
 
-Show the latest setting name and value in a full-screen overlay on both main dashboards. Use a dark backing and large centered type so the change is easy to read at a glance. Keep it visible for five seconds; a newer setting change replaces it and restarts the timer. The selected dashboard stays loaded underneath and is revealed when the overlay clears, so no dashboard switching process is needed.
+Show the latest setting in a full-screen view on both main dashboards. Place its name at the top and its value in large centered type. Fill the background with that setting's existing Settings-page accent color, using dark text for strong contrast. Keep the view visible for five seconds; a newer setting change replaces it and restarts the timer. The selected dashboard stays loaded underneath and is revealed when the overlay clears, so no dashboard switching process is needed.
 
-Use the string channel `v1/gameData/SessionTypeName` for the overlay text and backing visibility. In AZOM's per-dashboard channel mappings, map it to the same formula from [`dashboards/setting-change-notice.js`](../dashboards/setting-change-notice.js) on Race and Settings. AZOM resolves formula mappings through SimHub's own formula engine, including JavaScript and per-formula state. This keeps the change detector and timer inside SimHub and removes the separate Python controller and Property Server dependency. [AZOM formula channel mapping](https://github.com/giantorth/AZOM/blob/v1.7.5/docs/ncalc-channel-mapping.md) · [SimHub JavaScript formula engine](https://github.com/SHWotever/SimHub/wiki/Javascript-Formula-Engine)
+Use the string channel `v1/gameData/SessionTypeName` for the setting name, value, and matching accent color. In AZOM's per-dashboard channel mappings, map it to the same formula from [`dashboards/setting-change-notice.js`](../dashboards/setting-change-notice.js) on Race and Settings. AZOM resolves formula mappings through SimHub's own formula engine, including JavaScript and per-formula state. This keeps the change detector and timer inside SimHub and removes the separate Python controller and Property Server dependency. [AZOM formula channel mapping](https://github.com/giantorth/AZOM/blob/v1.7.5/docs/ncalc-channel-mapping.md) · [SimHub JavaScript formula engine](https://github.com/SHWotever/SimHub/wiki/Javascript-Formula-Engine)
 
 | Setting | SimHub property | Display |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
 # Dashboard verification
 
-## 2026-11-26 · SimHub-native notice design
+## 2026-11-27 · Full-screen SimHub-native setting view
 
 ### Documentation check
 
@@ -12,14 +12,14 @@
 ### Included behavior
 
 - Two dashboards: Race and Settings.
-- Both use the `v1/gameData/SessionTypeName` string channel for the overlay text and conditional full-screen backing. Apply the same formula from `dashboards/setting-change-notice.js` to that channel on each dashboard in AZOM.
+- Both use the `v1/gameData/SessionTypeName` string channel for the setting name, value, and matching accent color. Apply the same formula from `dashboards/setting-change-notice.js` to that channel on each dashboard in AZOM.
 - The formula seeds an initial baseline, treats zero as a valid discrete setting, ignores unavailable negative values for discrete settings, normalizes brake bias, and shows the latest detected setting for five seconds. Game, car, track, session, and restart changes reset its baseline.
 - No Python runtime, Property Server, console window, or separate helper process is required. Python remains only as a maintainer-side layout/ZIP generator in `tools/`.
 
 ### Not verified
 
 - The formula has not been run against a connected SimHub/AZOM installation or the target CS Pro/KS Pro wheel.
-- Live iRacing property behavior, brake-bias sign/scale, string-channel mapping, same-frame multi-setting tie-break, five-second timing, dynamic background-color binding, and wheel text rendering need a live check.
+- Live iRacing property behavior, brake-bias sign/scale, string-channel mapping, same-frame multi-setting tie-break, five-second timing, dynamic accent-color background binding, text contrast, and wheel rendering need a live check.
 - Dashboard Studio import/rendering, wheel-side readability, and ATSR-Hub EVO lighting continuity remain unverified.
 
 ### Restart point

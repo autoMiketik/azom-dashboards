@@ -131,20 +131,20 @@ def add_setting_notice_overlay(children: list[dict]) -> None:
     backdrop["binding"]["general.backgroundColor.color"] = {
         "methods": [
             f'Telemetry.get("{NOTICE_CHANNEL}").value',
-            "((v)=>v===undefined||v===null||String(v)===''?'#00000000':'#0D1117')(_result)",
+            "((v)=>{if(v===undefined||v===null||String(v)==='')return '#00000000';const p=String(v).split('|');return p.length===3?p[2]:'#00000000';})(_result)",
         ],
         "type": "METHOD_CHAINING",
     }
     children.append(backdrop)
     children.append(text(
-        "Setting change heading", "", 20, 42, 740, 40, 24, MUTED,
+        "Setting change heading", "", 20, 18, 740, 50, 32, BG,
         url=NOTICE_CHANNEL,
-        formatter="((v)=>v===undefined||v===null||String(v)===''?'':'SETTING CHANGED')(_result)",
+        formatter="((v)=>{if(v===undefined||v===null)return '';const p=String(v).split('|');return p.length===3?p[0]:'';})(_result)",
     ))
     children.append(text(
-        "Setting change notice", "", 20, 82, 740, 100, 64,
+        "Setting change notice", "", 20, 68, 740, 138, 112, BG,
         url=NOTICE_CHANNEL,
-        formatter="((v)=>v===undefined||v===null?'':String(v))(_result)",
+        formatter="((v)=>{if(v===undefined||v===null)return '';const p=String(v).split('|');return p.length===3?p[1]:'';})(_result)",
     ))
 
 
