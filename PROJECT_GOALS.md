@@ -1,37 +1,15 @@
 # Project goals
 
-**Status:** Initial scope; refine as hardware, games, and add-ons are confirmed.
+**Status:** Two dashboards are packaged; live wheel verification remains.
 
-## Aim
+## Scope
 
-Create useful dashboards for the MOZA CS Pro and KS Pro wheels, using SimHub telemetry with AZOM and ATSR-Hub EVO as required integrations.
+Create readable MOZA CS Pro and KS Pro dashboards for SimHub through AZOM, using iRacing as the first verification environment. Keep ATSR-Hub EVO in scope for wheel lighting profiles.
 
-## Initial goals
+The current package provides Race and Settings layouts, editable and upload-ready files, a telemetry binding map, an install guide, and a downloadable ZIP. A setting change uses SimHub/AZOM formulas to show the setting name, value, and matching Settings-page accent color across the full display for five seconds. No separate runtime is required.
 
-- Design clear, readable dashboard layouts for the wheel's display.
-- Use shared SimHub properties and computed values for dashboard bindings where available. Maintain a [SimHub property map and iRacing SDK catalog](telemetry/README.md) for main dashboards and popups.
-- Use AZOM to connect SimHub telemetry to the MOZA wheel dashboards.
-- Include ATSR-Hub EVO in the required SimHub integration scope.
-- Confirm the dashboard format and upload workflow for the target wheel.
-- Document setup, compatibility, installation, and customization so the dashboards are practical to use and maintain.
-- Validate the result on the target wheel with the selected simulator and add-ons.
+## Remaining verification
 
-## First milestone: Brake Bias popup
+On the target wheel, confirm each live property path, value, units, and behavior in SimHub; verify AZOM channel mappings and the full-screen setting view; and check readability at normal driving distance. Record the simulator, car, session, wheel, firmware, software versions, and observed values in the binding map or [verification notes](docs/verification.md). Keep replay results separate from hardware results.
 
-- When the simulator reports a change in brake bias through SimHub, select a dedicated popup dashboard on the wheel. Show **BRAKE BIAS** and the current value in large type at the center of the screen.
-- Keep one shared popup duration setting, defaulting to 5 seconds. Each change updates the value and restarts the timer. The initial telemetry reading establishes a baseline.
-- Remember the active main dashboard when the first popup opens. If another setting changes while a popup is visible, show the latest popup and restart the shared timer. Keep the same main dashboard as the return target.
-- When the timer expires, restore the saved main dashboard. For example, with a change at 0 seconds and another at 3 seconds, restore the main dashboard at 8 seconds.
-
-Start with iRacing, one main dashboard and one brake bias popup. Use the [live binding checklist](telemetry/README.md#verify-a-live-binding) to identify the live SimHub property for the first test car. Verify that AZOM can identify the active dashboard, select the popup, and restore the saved dashboard. The public [AZOM action reference](https://giant.orth.cc/guides/properties-and-actions/) documents next and previous actions. Confirm whether the installed version exposes direct selection and active dashboard state before building more layouts.
-
-## Decisions to confirm
-
-- CS Pro and KS Pro are confirmed compatible target wheels.
-- Display constraints and dashboard behavior for each target wheel.
-- First iRacing test car, the telemetry each dashboard should show, and any later simulators.
-- Dashboard design preferences and how the finished dashboards will be shared.
-
-## Research starting point
-
-See [the reference index](docs/REFERENCES.md). The local sample archive is kept in the ignored `references/` directory; its filename mentions CS KS PRO.
+See the [telemetry guide](telemetry/README.md) for property lookup and [reference index](docs/REFERENCES.md) for upstream documentation.

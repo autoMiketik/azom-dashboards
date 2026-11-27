@@ -10,7 +10,6 @@ These links are research sources for the initial dashboard and SimHub integratio
 ## MOZA dashboards
 
 - [MOZA Dash Studio Tutorial](https://support.mozaracing.com/en/support/solutions/articles/70000665526-moza-dash-studio-tutorial) — creating a dashboard, available controls, telemetry binding, and uploading a dashboard to a device.
-- [`reference-dashboard.zip`](../references/reference-dashboard.zip) — local example supplied for this project. It contains an `.mzdash` named `ICONIC DASHBOARD CS KS PRO Maomi-Tom`; verify the target model before treating it as a template. The archive is excluded from Git.
 
 ## SimHub integrations and add-ons
 

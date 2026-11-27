@@ -20,7 +20,7 @@ The map is a source-backed starting point. Actual values depend on the game, car
 
 ## iRacing SDK telemetry catalog
 
-Open [iracing.csv](iracing.csv) in a spreadsheet to filter the SDK fields for main dashboards and popups. The catalog combines the 2015 live data appendix, the pyirsdk variable list, and every field in the headers of five iRacing recordings. It covers driving, timing, fuel, tyres, session status, and in-car adjustments. The field list can grow as we see more cars and builds.
+Open [iracing.csv](iracing.csv) in a spreadsheet to filter the SDK fields for the dashboards and setting-change view. The catalog combines the 2015 live data appendix, the pyirsdk variable list, and every field in the headers of five iRacing recordings. It covers driving, timing, fuel, tyres, session status, and in-car adjustments. The field list can grow as we see more cars and builds.
 
 | Column | Meaning |
 | --- | --- |
@@ -39,7 +39,7 @@ For new cars, [irTelemetryExplorer](https://svappslab.com/iRacing/TelemetryExplo
 2. Open **Available Properties** and look up the shared property from [simhub.csv](simhub.csv). In Dash Studio's property picker, enable **Show game specific properties** to see raw fields. For brake bias, start with `DataCorePlugin.GameData.BrakeBias` and compare it with `dcBrakeBias` if available. [SimHub binding guide](https://github.com/SHWotever/SimHub/wiki/Dash-Studio---Bindings)
 3. Note the SimHub and cockpit values at baseline, one step up, and one step back. Check they agree or identify the needed format or conversion. Confirm the value holds steady between changes. A `SessionData.CarSetup` value may describe the starting setup, so check it against a live adjustment before using it.
 4. Record the simulator, car, session, SimHub version, exact property path, observed values, and units. Record missing or static signals for that car too.
-5. Where possible, record two setting changes less than five seconds apart, then at least six seconds of steady telemetry. Confirm SimHub Replay reproduces both changes before using the recording for popup timer checks. [SimHub Record and Replay](https://github.com/SHWotever/SimHub/wiki/NCalc-scripting---Introduction)
+5. Where possible, record two setting changes less than five seconds apart, then at least six seconds of steady telemetry. Confirm SimHub Replay reproduces both changes before using the recording to check the setting-view timer. [SimHub Record and Replay](https://github.com/SHWotever/SimHub/wiki/NCalc-scripting---Introduction)
 
 ## Sources
 

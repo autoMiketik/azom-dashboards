@@ -9,7 +9,7 @@ Download the [dashboard package](dashboards/MOZA-CS-KS-Pro-Dashboards.zip) for t
 - [Telemetry binding map](dashboards/bindings.csv)
 - [SimHub setting-notice formula](dashboards/setting-change-notice.js)
 - [Design preview](docs/mockups/dashboard-preview.png)
-- [Dashboard plan](docs/DASHBOARD_PLAN.md) and [verification notes](docs/verification.md)
+- [Telemetry catalogs](telemetry/README.md), [verification notes](docs/verification.md), and [upstream references](docs/REFERENCES.md)
 
 ## Compatibility and verification
 
